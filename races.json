@@ -1,0 +1,105 @@
+{
+    "Aasimar": {
+        "AbilityScoreIncrease": ["2,1","1,1,1"],
+        "CreatureType": "Humanoid",
+        "SizeOptions": ["Medium", "Small"],
+        "Speed": 30,
+        "Darkvision": true,
+        "Languages": ["Common", "Other"],
+        "RaceProficiencies": {
+            "Resistances": ["Necrotic", "Radiant"]
+        }
+    },
+    "Dragonborn": {
+        "AbilityScoreIncrease": ["Strength", "Strength", "Charisma"],
+        "CreatureType": "Humanoid",
+        "SizeOptions": ["Medium"],
+        "Speed": 30,
+        "Darkvision": false,
+        "Languages": ["Common", "Draconic"],
+        "RaceProficiencies": {
+            "Resistances": []
+        },
+        "DragonColor": ["Black", "Blue", "Brass", "Bronze", "Copper", "Gold", "Green", "Red", "Silver", "White"]
+    },
+    "Dwarf": {
+        "AbilityScoreIncrease": ["Constitution", "Constitution"],
+        "CreatureType": "Humanoid",
+        "SizeOptions": ["Medium"],
+        "Speed": 25,
+        "Darkvision": true,
+        "Languages": ["Common", "Dwarvish"],
+        "RaceProficiencies": {
+            "Resistances": ["Poison"],
+            "SavingThrowsAdvantages": ["Poison"],
+            "Weapons": ["Battleaxe", "Handaxe", "Light hammer", "Warmhammer"],
+            "Tools": [["smith's tools", "brewer's supplies", "mason's tools"]]
+        }
+    },
+    "Elf":{
+        "AbilityScoreIncrease": ["Dexterity", "Dexterity"],
+        "CreatureType": "Humanoid",
+        "SizeOptions": ["Medium"],
+        "Speed": 30,
+        "Darkvision": true,
+        "Languages": ["Common", "Elvish"],
+        "RaceProficiencies": {
+            "SavingThrowsAdvantages": ["Charmed"],
+            "Skills": ["Perception"]
+        }
+    }, 
+    "Gnome": {
+        "AbilityScoreIncrease": ["Intelligence", "Intelligence"],
+        "CreatureType": "Humanoid",
+        "SizeOptions": ["Small"],
+        "Speed": 25,
+        "Darkvision": true,
+        "Languages": ["Common", "Gnomish"],
+        "RaceProficiencies": {
+            "SavingThrowsAdvantages": ["Intelligence", "Wisdom", "Charisma"],
+            "Skills": ["Perception"]
+        }
+    }, 
+    "Goliath": {
+        "AbilityScoreIncrease": ["Strength", "Strength", "Constitution"],
+        "CreatureType": "Humanoid",
+        "SizeOptions": ["Medium"],
+        "Speed": 30,
+        "Darkvision": false,
+        "Languages": ["Common", "Giant"],
+        "RaceProficiencies": {
+            "Resistances": ["Cold"],
+            "Skills": ["Athletics"]
+        }
+    }, 
+    "Halfling": {
+        "AbilityScoreIncrease": ["Dexterity", "Dexterity"],
+        "CreatureType": "Humanoid",
+        "SizeOptions": ["Small"],
+        "Speed": 25,
+        "Darkvision": false,
+        "Languages": ["Common", "Halfling"],
+        "RaceProficiencies": {
+            "SavingThrowsAdvantages": ["Frightened"]
+        }
+    }, 
+    "Human": {
+        "AbilityScoreIncrease": ["Strength", "Dexterity", "Constitution", "Intelligence", "Wisdom", "Charisma"],
+        "CreatureType": "Humanoid",
+        "SizeOptions": ["Medium"],
+        "Speed": 30,
+        "Darkvision": false,
+        "Languages": ["Common", "Other"]
+    },
+    "Tiefling": {
+        "AbilityScoreIncrease": ["Charisma", "Charisma"],
+        "CreatureType": "Humanoid",
+        "SizeOptions": ["Medium"],
+        "Speed": 30,
+        "Darkvision": true,
+        "Languages": ["Common", "Infernal"],
+        "RaceProficiencies": {
+            "Resistances": ["Fire"]
+        }
+    }
+}

@@ -1,0 +1,100 @@
+{
+    "Club": {
+        "Cost": "1SP",
+        "Damage": "1d4",
+        "Damage Type": "Bludgeoning",
+        "Weight": 2,
+        "Attributes": ["Simple", "Light", "Melee"]
+    },
+    "Dagger": {
+        "Cost": "2GP",
+        "Damage": "1d4",
+        "Damage Type": "Piercing",
+        "Weight": 1,
+        "Attributes": ["Simple", "Finesse", "Light", "Melee", "Thrown (20/60)"]
+    },
+    "Greatclub": {
+        "Cost": "2SP",
+        "Damage": "1d8",
+        "Damage Type": "Bludgeoning",
+        "Weight": 10,
+        "Attributes": ["Simple", "Melee", "Two-handed"]
+    },
+    "Handaxe": {
+        "Cost": "5SP",
+        "Damage": "1d6",
+        "Damage Type": "Slashing",
+        "Weight": 2,
+        "Attributes": ["Simple", "Light", "Melee", "Thrown (20/60)"]
+    },
+    "Javelin": {
+        "Cost": "5SP",
+        "Damage": "1d6",
+        "Damage Type": "Piercing",
+        "Weight": 2,
+        "Attributes": ["Simple", "Melee", "Thrown (30/120)"]
+    },
+    "Light hammer": {
+        "Cost": "2GP",
+        "Damage": "1d4",
+        "Damage Type": "Bludgeoning",
+        "Weight": 2,
+        "Attributes": ["Simple", "Light", "Melee", "Thrown (20/60)"]
+    },
+    "Mace": {
+        "Cost": "5GP",
+        "Damage": "1d6",
+        "Damage Type": "Bludgeoning",
+        "Weight": 4,
+        "Attributes": ["Simple", "Melee"]
+    },
+    "Quarterstaff": {
+        "Cost": "2SP",
+        "Damage": "1d6",
+        "Damage Type": "Bludgeoning",
+        "Weight": 4,
+        "Attributes": ["Simple", "Melee", "Versatile (1d8)"]
+    },
+    "Sickle": {
+        "Cost": "1GP",
+        "Damage": "1d4",
+        "Damage Type": "Slashing",
+        "Weight": 2,
+        "Attributes": ["Simple", "Melee", "Light"]
+    },
+    "Spear": {
+        "Cost": "1GP",
+        "Damage": "1d6",
+        "Damage Type": "Piercing",
+        "Weight": 3,
+        "Attributes": ["Simple", "Melee", "Thrown (20/60)", "Versatile (1d8)"]
+    },
+    "Crossbow (light)": {
+        "Cost": "25GP",
+        "Damage": "1d8",
+        "Damage Type": "Piercing",
+        "Weight": 5,
+        "Attributes": ["Simple", "Ranged", "Ammunition (80/320)", "Loading", "Two-handed"]
+    },
+    "Dart": {
+        "Cost": "5CP",
+        "Damage": "1d4",
+        "Damage Type": "Piercing",
+        "Weight": 0.25,
+        "Attributes": ["Simple", "Ranged", "Thrown (20/60)", "Finesse"]
+    },
+    "Shortbow": {
+        "Cost": "25GP",
+        "Damage": "1d6",
+        "Damage Type": "Piercing",
+        "Weight": 2,
+        "Attributes": ["Simple", "Ranged", "Ammunition (80/320)", "Two-handed"]
+    },
+    "Sling": {
+        "Cost": "1SP",
+        "Damage": "1d4",
+        "Damage Type": "Bludgeoning",
+        "Weight": 0,
+        "Attributes": ["Simple", "Ranged", "Ammunition (80/320)"]
+    }
+}

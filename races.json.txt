@@ -1,20 +1,21 @@
-'Race_Name' : {
-    "AbilityScoreIncrease" - List - Either list of ability scores where the name will be increased by 1 or '2,1' where you can increase 1 by 2 and 1 by 1 or '1,1,1' where you can increase 3 by 1
-        ['Charisma', 'Charisma'] - Increases Charisma by 2
-        ['2,1', '1,1,1'] - User chooses to increase 3 stats by 1 or 1 stat by 2 and 1 stat by 1
-    "CreatureType" - String - Type of creature
-    "SizeOptions" - List - If list size is 1 there is no choice and the only element is chosen, otherwise the player can choose from the list
-    "Speed" - Int - Move speed in ft
-    "Darkvision" - Bool - True or false based on if the race has darkvision
-    "Languages" - List - All languages that this race can speak, if "Other" is in the list the user can choose a language
-    
-    "RaceProficiencies": {
-        "SavingThrowsAdvantages" - List - The user gets advantage when they have to make a saving throw against the corresponding check
-        "Resistances" - List - Damage types you resist
-        "Weapons" - List - Weapons you gain proficiency in
-        "Tools" - List - Tools you gain proficiency in (if there is a nested list choose one from the nested list)
-        "Skills" - List - Free skill proficiencies from the race
-    }
+'Main_Race':
+    'Race_Name' : {
+        "AbilityScoreIncrease" - List - Either list of ability scores where the name will be increased by 1 or '2,1' where you can increase 1 by 2 and 1 by 1 or '1,1,1' where you can increase 3 by 1
+            ['Charisma', 'Charisma'] - Increases Charisma by 2
+            ['2,1', '1,1,1'] - User chooses to increase 3 stats by 1 or 1 stat by 2 and 1 stat by 1
+        "CreatureType" - String - Type of creature
+        "SizeOptions" - List - If list size is 1 there is no choice and the only element is chosen, otherwise the player can choose from the list
+        "Speed" - Int - Move speed in ft
+        "Languages" - List - All languages that this race can speak, if "Other" is in the list the user can choose a language
+        
 
-        "DragonColor": ["Black", "Blue", "Brass", "Bronze", "Copper", "Gold", "Green", "Red", "Silver", "White"]
-}
+        "RaceAttributes" - List - Attributes associated with the race
+        "SubRaces" - List - List of subraces
+
+            "DragonColor": ["Black", "Blue", "Brass", "Bronze", "Copper", "Gold", "Green", "Red", "Silver", "White"]
+    },
+'Sub_race':
+    'Sub_race_name':{
+        "AbilityScoreIncrease" - List - See above
+        'SubRaceAttributes' - List - Attributes associated with the subrace
+    }

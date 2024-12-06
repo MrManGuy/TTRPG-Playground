@@ -1,0 +1,56 @@
+{
+    "MainClasses": {
+        "Artificer": {
+            "Hit Die": "1d8",
+            "Proficiencies": {
+                "Armor": ["Light", "Medium", "Shields"],
+                "Weapons": ["Simple"],
+                "Tools": ["Thieves' tools", "Tinker's tools"],
+                "Saving Throws": ["Constitution", "Intelligence"],
+                "Skill Pool": [[1, "Arcana", "History", "Investigation", "Medicine", "Nature", "Perception", "Sleight of Hand"], [2, "Arcana", "History", "Investigation", "Medicine", "Nature", "Perception", "Sleight of Hand"]]
+            },
+            "Starting Equipment": {
+                "Weapon Choice": [[1, "Any", "Simple Weapons"], [2, "Any", "Simple Weapons"]],
+                "Forced Weapons": ["Light Crossbow", "20 Bolts"],
+                "Armor Choice": [["Studded Leather", "Scale Mail"]] ,
+                "Pack Choice": [["Thieves' tools", "Dungeoneer's pack"]],
+                "Gold Alternative": "5d4x10"
+            },
+            "SpellCastingAbility": "Intelligence",
+            "Levels": [{
+                "Features": ["Magical Tinkering"],
+                "Spell Slots": [2, 2, 0, 0, 0, 0]
+            }, {
+                "Features": ["Infuse Item"],
+                "Spell Slots": [2, 2, 0, 0, 0, 0],
+                "Infusions": [4, 2]
+            }, {
+                "Features": ["Artificer Specialist", "The Right Tool for the Job"],
+                "Spell Slots": [2, 3, 0, 0, 0, 0],
+                "Infusions": [4, 2]
+            }, {
+                "Features": ["Ability Score Improvement"],
+                "Spell Slots": [2, 3, 0, 0, 0, 0],
+                "Infusions": [4, 2]
+            }, {
+                "Features": ["Artificer Specialist feature"],
+                "SpellSlots": [2, 4, 2, 0, 0, 0],
+                "Infusions": [4, 2]
+            }]
+        },
+        "Barbarian": {
+            "HitDie": "1d12",
+            "Proficiencies": {
+                "Armor": ["Light", "Medium", "Shields"],
+                "Weapons": ["Simple", "Martial"],
+                "Tools": [],
+                "SavingThrows": ["Strength", "Constitution"],
+                "SkillPool": [["Animal Handling", "Athletics", "Intimidation", "Nature", "Perception", "Survival"], ["Animal Handling", "Athletics", "Intimidation", "Nature", "Perception", "Survival"]]
+            }
+        }
+    },
+    "SubClasses": {
+
+    }
+    
+}

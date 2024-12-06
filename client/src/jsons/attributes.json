@@ -1,0 +1,70 @@
+{
+    "Brave": {
+
+    },
+    "Celesital Resistance": {
+
+    },
+    "Celesital Revelation": {
+
+    },
+    "Darkvision": {
+        "Description": "You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were dim light. You can’t discern color in darkness, only shades of gray."
+    },
+    "Draconinc Ancestory": {
+        "ColorChoices": ["Black", "Blue", "Brass", "Bronze", "Copper", "Gold", "Green", "Red", "Silver", "White"],
+        "Breath Weapon": true,
+        "Damage Resistance": true
+    },
+    "Dwarven Combat Training": {
+
+    },
+    "Dwarven Resilience": {
+
+    },
+    "Fey Ancestry": {
+
+    },
+    "Gnome Cunning": {
+
+    },
+    "Healing Hands": {
+
+    },
+    "Hellish Resistance": {
+        "Description": "You have resistance to fire damage."
+    },
+    "Keen Senses": {
+
+    },
+    "Light Bearer": {
+
+    },
+    "Lucky": {
+
+    },
+    "Mountain Born": {
+
+    },
+    "Natural Athlete": {
+
+    },
+    "Nimble": {
+
+    },
+    "Powerful Build": {
+
+    },
+    "Stonecunning": {
+
+    },
+    "Stone's Endurance": {
+
+    },
+    "Tool Proficiency": {
+
+    },
+    "Trance": {
+
+    }
+}

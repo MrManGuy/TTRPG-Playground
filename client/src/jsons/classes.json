@@ -1,17 +1,17 @@
 {
-    "MainClasses": {
+    "Main Classes": {
         "Artificer": {
             "Hit Die": "1d8",
             "Proficiencies": {
                 "Armor": ["Light", "Medium", "Shields"],
-                "Weapons": ["Simple"],
+                "Weapons": ["Simple", "Firearm"],
                 "Tools": ["Thieves' tools", "Tinker's tools"],
                 "Saving Throws": ["Constitution", "Intelligence"],
-                "Skill Pool": [[1, "Arcana", "History", "Investigation", "Medicine", "Nature", "Perception", "Sleight of Hand"], [2, "Arcana", "History", "Investigation", "Medicine", "Nature", "Perception", "Sleight of Hand"]]
+                "Skill Choice": [[1, "Arcana", "History", "Investigation", "Medicine", "Nature", "Perception", "Sleight of Hand"], [2, "Arcana", "History", "Investigation", "Medicine", "Nature", "Perception", "Sleight of Hand"]]
             },
             "Starting Equipment": {
                 "Weapon Choice": [[1, "Any", "Simple Weapons"], [2, "Any", "Simple Weapons"]],
-                "Forced Weapons": ["Light Crossbow", "20 Bolts"],
+                "Forced Items": ["Light Crossbow", "20 Bolts"],
                 "Armor Choice": [["Studded Leather", "Scale Mail"]] ,
                 "Pack Choice": [["Thieves' tools", "Dungeoneer's pack"]],
                 "Gold Alternative": "5d4x10"
@@ -39,17 +39,33 @@
             }]
         },
         "Barbarian": {
-            "HitDie": "1d12",
+            "Hit Die": "1d12",
             "Proficiencies": {
                 "Armor": ["Light", "Medium", "Shields"],
                 "Weapons": ["Simple", "Martial"],
                 "Tools": [],
-                "SavingThrows": ["Strength", "Constitution"],
-                "SkillPool": [["Animal Handling", "Athletics", "Intimidation", "Nature", "Perception", "Survival"], ["Animal Handling", "Athletics", "Intimidation", "Nature", "Perception", "Survival"]]
-            }
+                "Saving Throws": ["Strength", "Constitution"],
+                "Skill Choice": [[1, "Animal Handling", "Athletics", "Intimidation", "Nature", "Perception", "Survival"], [2, "Animal Handling", "Athletics", "Intimidation", "Nature", "Perception", "Survival"]]
+            },
+            "Starting Equipment": {
+                "Weapon Choice": [[1, "Any", "Martial Melee Weapons"], [2, "Any", "Simple Weapons", "2x Handaxe"]],
+                "Forced Items": ["Explorer's pack", "Four javelins"],
+                "Gold Alternative": "2d4x10"
+            },
+            "Levels": [{
+                "Features": ["Rage", "Unarmored Defense"]
+            }, {
+                "Features": ["Reckless Attack", "Danger Sense"]
+            }, {
+                "Features": ["Primal Path", "Primal Knowledge"]
+            }, {
+                "Features": ["Ability Score Improvement"]
+            }, {
+                "Features": ["Extra Attack", "Fast Movement"]
+            }]
         }
     },
-    "SubClasses": {
+    "Sub Classes": {
 
     }
     

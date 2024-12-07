@@ -96,5 +96,166 @@
         "Damage Type": "Bludgeoning",
         "Weight": 0,
         "Attributes": ["Simple", "Ranged", "Ammunition (80/320)"]
+    },
+    "Battleaxe": {
+        "Cost": "10GP",
+        "Damage": "1d8",
+        "Damage Type": "Slashing",
+        "Weight": 4,
+        "Attributes": ["Martial", "Melee", "Versatile (1d10)"]
+    },
+    "Flail": {
+        "Cost": "10GP",
+        "Damage": "1d8",
+        "Damage Type": "Bludgeoning",
+        "Weight": 2,
+        "Attributes": ["Martial", "Melee"]
+    },
+    "Glaive": {
+        "Cost": "20GP",
+        "Damage": "1d10",
+        "Damage Type": "Slashing",
+        "Weight": 6,
+        "Attributes": ["Martial", "Melee", "Heavy", "Reach", "Two-handed"]
+    },
+    "Greataxe": {
+        "Cost": "30GP",
+        "Damage": "1d12",
+        "Damage Type": "Slashing",
+        "Weight": 7,
+        "Attributes": ["Martial", "Melee", "Heavy", "Two-handed"]
+    },
+    "Greatsword": {
+        "Cost": "50GP",
+        "Damage": "2d6",
+        "Damage Type": "Slashing",
+        "Weight": 6,
+        "Attributes": ["Martial", "Melee", "Heavy", "Two-handed"]
+    },
+    "Halberd": {
+        "Cost": "20gp",
+        "Damage": "1d10",
+        "Damage Type": "Slashing",
+        "Weight": 6,
+        "Attributes": ["Martial", "Melee", "Heavy", "Reach", "Two-handed"]
+    },
+    "Lance": {
+        "Cost": "10GP",
+        "Damage": "1d12",
+        "Damage Type": "Piercing",
+        "Weight": 6,
+        "Attributes": ["Martial", "Melee", "Reach", "Special"]
+    },
+    "Longsword": {
+        "Cost": "15GP",
+        "Damage": "1d8",
+        "Damage Type": "Slashing",
+        "Weight": 3,
+        "Attributes": ["Martial", "Melee", "Versatile (1d10)"]
+    },
+    "Maul": {
+        "Cost": "10GP",
+        "Damage": "2d6",
+        "Damage Type": "Bludgeoning",
+        "Weight": 10,
+        "Attributes": ["Martial", "Melee", "Heavy", "Two-handed"]
+    },
+    "Morningstar": {
+        "Cost": "15GP",
+        "Damage": "1d8",
+        "Damage Type": "Piercing",
+        "Weight": 4,
+        "Attributes": ["Martial", "Melee"]
+    },
+    "Pike": {
+        "Cost": "5GP",
+        "Damage": "1d10",
+        "Damage Type": "Piercing",
+        "Weight": 18,
+        "Attributes": ["Martial", "Melee", "Heavy", "Reach", "Two-handed"]
+    },
+    "Rapier": {
+        "Cost": "25GP",
+        "Damage": "1d8",
+        "Damage Type": "Piercing",
+        "Weight": 2,
+        "Attributes": ["Martial", "Melee", "Finesse"]
+    },
+    "Scimitar": {
+        "Cost": "25GP",
+        "Damage": "1d6",
+        "Damage Type": "Slashing",
+        "Weight": 3,
+        "Attributes": ["Martial", "Melee", "Finesse", "Light"]
+    },
+    "Shortsword": {
+        "Cost": "10GP",
+        "Damage": "1d6",
+        "Damage Type": "Piercing",
+        "Weight": 2,
+        "Attributes": ["Martial", "Melee", "Finesse", "Light"]
+    },
+    "Trident": {
+        "Cost": "5GP",
+        "Damage": "1d6",
+        "Damage Type": "Piercing",
+        "Weight": 4,
+        "Attributes": ["Martial", "Melee", "Thrown (20/60)", "Versatile (1d8)"]
+    },
+    "War pick": {
+        "Cost": "5GP",
+        "Damage": "1d8",
+        "Damage Type": "Piercing",
+        "Weight": 2,
+        "Attributes": ["Martial", "Melee"]
+    },
+    "Warhammer": {
+        "Cost": "15GP",
+        "Damage": "1d8",
+        "Damage Type": "Bludgeoning",
+        "Weight": 2,
+        "Attributes": ["Martial", "Melee", "Versatile (1d10)"]
+    },
+    "Whip": {
+        "Cost": "2GP",
+        "Damage": "1d4",
+        "Damage Type": "Slashing",
+        "Weight": 3,
+        "Attributes": ["Martial", "Melee", "Finesse", "Reach"]
+    },
+    "Blowgun": {
+        "Cost": "10GP",
+        "Damage": "1",
+        "Damage Type": "Piercing",
+        "Weight": 1,
+        "Attributes": ["Martial", "Ranged", "Ammunition (25/100)", "Loading"]
+    },
+    "Crossbow (hand)": {
+        "Cost": "75GP",
+        "Damage": "1d6",
+        "Damage Type": "Piercing",
+        "Weight": 3,
+        "Attributes": ["Martial", "Ranged", "Ammunition (30/120)", "Loading", "Light"]
+    },
+    "Crossbow (heavy)": {
+        "Cost": "50GP",
+        "Damage": "1d10",
+        "Damage Type": "Piercing",
+        "Weight": 18,
+        "Attributes": ["Martial", "Ranged", "Ammunition (100/400)", "Loading", "Heavy", "Two-handed"]
+    },
+    "Longbow": {
+        "Cost": "50GP",
+        "Damage": "1d8",
+        "Damage Type": "Piercing",
+        "Weight": 2,
+        "Attributes": ["Martial", "Ranged", "Ammunition (150/600)", "Heavy", "Two-handed"]
+    },
+    "Net": {
+        "Cost": "1GP",
+        "Damage": "",
+        "Damage Type": "",
+        "Weight": 3,
+        "Attributes": ["Martial", "Ranged", "Special", "Thrown (5/15)"]
     }
 }

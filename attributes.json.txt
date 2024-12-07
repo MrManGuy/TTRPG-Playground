@@ -1,0 +1,24 @@
+"Attribute Name": {
+    "Description" - HTML
+    "Type" - String
+        "Action" - Takes an action to cast / use
+        "Passive" - Effects happen regardless
+    "Limit" - number - Type is action, therefore there is a limit to how many can be used
+    "Limit Reset" - String - Required action to reset this attributes limit
+        "Long Rest" - User takes a long rest
+        "Short Rest" - User takes a short rest
+    "Effects" - {
+        "Heal" - String - Only set if the attribute has a healing effect
+            "CLevel" - Heal for caster level amount
+            "TLevel" - Heal for target level amount
+            "ndx" - Roll n dx 
+        "Target" - String - Only set if the attribute needs a target
+            "Single" - Only one target allowed
+            "Single (not self)" - Only one target allowed, cannot cast on self
+            "Multiple" - Self and all selected targets affected
+            "Multiple (not self)" - All selected targets affected
+            "Radius" - All targets in radius affected
+        "Resistances" - List - Player resistances (Could be temporary like Barbarian rage)
+        "Free Spell" - List - index 0 - spell name, index 1 - spell level, index 2 - spellcasting ability
+    }
+}

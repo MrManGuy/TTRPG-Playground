@@ -2,20 +2,12 @@
     margin-top: 0.5rem;
 }
 
-.character_card{
-    .card_image{
-        padding: 1rem;
-        aspect-ratio: 2 / 1 auto;
-        max-height: 256px;
-        max-width: 512px;
-    }
-    .card_text{
-        text-align: center;
-    }
-}
-
 .right_float{
     float: right;
+}
+
+.full_width{
+    width:100%;
 }
 
 body{
@@ -24,6 +16,7 @@ body{
 }
 
 .section_header {
+    margin-top:0.5rem;
     font-size: 1.7rem;
     font-weight: 500;
 }

@@ -1,95 +1,95 @@
 {
-    "MainRaces":{
+    "Main Races":{
         "Aasimar": {
-            "AbilityScoreIncrease": ["Charisma","Charisma"],
+            "Ability Score Increase": ["Charisma","Charisma"],
             "Source": "Volo's Guide to Monsters",
-            "CreatureType": "Humanoid",
-            "SizeOptions": ["Medium"],
+            "Creature Type": "Humanoid",
+            "Size Options": ["Medium"],
             "Speed": 30,
             "Languages": ["Common", "Other"],
-            "RaceAttributes": ["Darkvision", "Celesital Resistance", "Healing Hands", "Light Bearer", "Celesital Revelation"],
-            "SubRaces": ["Protector", "Scourge", "Fallen"]
+            "Race Attributes": ["Darkvision", "Celesital Resistance", "Healing Hands", "Light Bearer", "Celesital Revelation"],
+            "Sub Races": ["None", "Protector", "Scourge", "Fallen"]
         },
         "Dragonborn": {
-            "AbilityScoreIncrease": ["Strength", "Strength", "Charisma"],
+            "Ability Score Increase": ["Strength", "Strength", "Charisma"],
             "Source": "Player's Handbook",
-            "CreatureType": "Humanoid",
-            "SizeOptions": ["Medium"],
+            "Creature Type": "Humanoid",
+            "Size Options": ["Medium"],
             "Speed": 30,
             "Languages": ["Common", "Draconic"],
-            "RaceAttributes": ["Draconic Ancestry", "Breath Weapon", "Damage Resistance"]
+            "Race Attributes": ["Draconic Ancestry", "Breath Weapon", "Damage Resistance"]
         },
         "Dwarf": {
-            "AbilityScoreIncrease": ["Constitution", "Constitution"],
+            "Ability Score Increase": ["Constitution", "Constitution"],
             "Source": "Player's Handbook",
-            "CreatureType": "Humanoid",
-            "SizeOptions": ["Medium"],
+            "Creature Type": "Humanoid",
+            "Size Options": ["Medium"],
             "Speed": 25,
             "Languages": ["Common", "Dwarvish"],
-            "RaceAttributes": ["Darkvision", "Dwarven Resilience", "Dwarven Combat Training", "Tool Proficiency", "Stonecunning"],
-            "SubRaces": ["Hill Dwarf", "Mountain Dwarf"]
+            "Race Attributes": ["Darkvision", "Dwarven Resilience", "Dwarven Combat Training", "Tool Proficiency", "Stonecunning"],
+            "Sub Races": ["None", "Hill", "Mountain"]
         },
         "Elf":{
-            "AbilityScoreIncrease": ["Dexterity", "Dexterity"],
+            "Ability Score Increase": ["Dexterity", "Dexterity"],
             "Source": "Player's Handbook",
-            "CreatureType": "Humanoid",
-            "SizeOptions": ["Medium"],
+            "Creature Type": "Humanoid",
+            "Size Options": ["Medium"],
             "Speed": 30,
             "Languages": ["Common", "Elvish"],
-            "RaceAttributes": ["Darkvision", "Fey Ancestry", "Trance", "Keen Senses"],
-            "SubRaces": ["Dark Elf", "High Elf", "Wood Elf"]
+            "Race Attributes": ["Darkvision", "Fey Ancestry", "Trance", "Keen Senses"],
+            "Sub Races": ["None", "Dark", "High", "Wood"]
         }, 
         "Gnome": {
-            "AbilityScoreIncrease": ["Intelligence", "Intelligence"],
+            "Ability Score Increase": ["Intelligence", "Intelligence"],
             "Source": "Player's Handbook",
-            "CreatureType": "Humanoid",
-            "SizeOptions": ["Small"],
+            "Creature Type": "Humanoid",
+            "Size Options": ["Small"],
             "Speed": 25,
             "Languages": ["Common", "Gnomish"],
-            "RaceAttributes": ["Darkvision", "Gnome Cunning"],
-            "SubRaces": ["Forest", "Rock"]
+            "Race Attributes": ["Darkvision", "Gnome Cunning"],
+            "Sub Races": ["None", "Forest", "Rock"]
         }, 
         "Goliath": {
-            "AbilityScoreIncrease": ["Strength", "Strength", "Constitution"],
+            "Ability Score Increase": ["Strength", "Strength", "Constitution"],
             "Source": "Elemental Evil Player's Guide",
-            "CreatureType": "Humanoid",
-            "SizeOptions": ["Medium"],
+            "Creature Type": "Humanoid",
+            "Size Options": ["Medium"],
             "Speed": 30,
             "Languages": ["Common", "Giant"],
-            "RaceAttributes": ["Natural Athlete", "Stone's Endurance", "Powerful Build", "Mountain Born"]
+            "Race Attributes": ["Natural Athlete", "Stone's Endurance", "Powerful Build", "Mountain Born"]
         }, 
         "Halfling": {
-            "AbilityScoreIncrease": ["Dexterity", "Dexterity"],
+            "Ability Score Increase": ["Dexterity", "Dexterity"],
             "Source": "Player's Handbook",
-            "CreatureType": "Humanoid",
-            "SizeOptions": ["Small"],
+            "Creature Type": "Humanoid",
+            "Size Options": ["Small"],
             "Speed": 25,
             "Languages": ["Common", "Halfling"],
-            "RaceAttributes": ["Lucky", "Brave", "Nimble"],
-            "SubRaces": ["Lightfoot", "Stout"]
+            "Race Attributes": ["Lucky", "Brave", "Nimble"],
+            "Sub Races": ["None", "Lightfoot", "Stout"]
         }, 
         "Human": {
-            "AbilityScoreIncrease": ["Strength", "Dexterity", "Constitution", "Intelligence", "Wisdom", "Charisma"],
+            "Ability Score Increase": ["Strength", "Dexterity", "Constitution", "Intelligence", "Wisdom", "Charisma"],
             "Source": "Player's Handbook",
-            "CreatureType": "Humanoid",
-            "SizeOptions": ["Medium"],
+            "Creature Type": "Humanoid",
+            "Size Options": ["Medium"],
             "Speed": 30,
             "Languages": ["Common", "Other"],
-            "RaceAttributes": [],
-            "SubRaces": ["Variant"]
+            "Race Attributes": [],
+            "Sub Races": ["None", "Variant"]
         },
         "Tiefling": {
-            "AbilityScoreIncrease": ["Charisma", "Charisma"],
+            "Ability Score Increase": ["Charisma", "Charisma"],
             "Source": "Player's Handbook",
-            "CreatureType": "Humanoid",
-            "SizeOptions": ["Medium"],
+            "Creature Type": "Humanoid",
+            "Size Options": ["Medium"],
             "Speed": 30,
             "Languages": ["Common", "Infernal"],
-            "RaceAttributes": ["Darkvision", "Hellish Resistance"],
-            "SubRaces": ["Bloodline of Asmodeus"]
+            "Race Attributes": ["Darkvision", "Hellish Resistance"],
+            "Sub Races": ["None", "Bloodline of Asmodeus"]
         }
     },
-    "SubRaces": {
+    "Sub Races": {
 
     }
 }

@@ -3,16 +3,22 @@
 
     },
     "Celesital Resistance": {
-
+        "Description": "<p>You have resistance to necrotic damage and radiant damage.</p>",
+        "Type": "Passive",
+        "Effects": {
+            "Resistances": ["Necrotic", "Radiant"]
+        }
     },
     "Celesital Revelation": {
 
     },
     "Darkvision": {
-        "Description": "You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were dim light. You can’t discern color in darkness, only shades of gray."
+        "Description": "<p>You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were dim light. You can’t discern color in darkness, only shades of gray.</p>"
     },
-    "Draconinc Ancestory": {
-        "ColorChoices": ["Black", "Blue", "Brass", "Bronze", "Copper", "Gold", "Green", "Red", "Silver", "White"],
+    "Draconic Ancestry": {
+        "Choice": true,
+        "Choices": ["Black", "Blue", "Brass", "Bronze", "Copper", "Gold", "Green", "Red", "Silver", "White"],
+        "Choice Title": "Dragon Color",
         "Breath Weapon": true,
         "Damage Resistance": true
     },
@@ -29,16 +35,26 @@
 
     },
     "Healing Hands": {
-
+        "Description": "<p>As an action, you can touch a creature and cause it to regain a number of hit points equal to your level. Once you use this trait, you can't use it again until you finish a long rest.</p>",
+        "Type": "Action",
+        "Limit": 1,
+        "Limit Reset": "Long Rest",
+        "Effects": {
+            "Heal": "CLevel"
+        }
     },
     "Hellish Resistance": {
-        "Description": "You have resistance to fire damage."
+        "Description": "<p>You have resistance to fire damage.</p>"
     },
     "Keen Senses": {
 
     },
     "Light Bearer": {
-
+        "Description": "<p>You know the Light cantrip. Charisma is your spellcasting ability for it.</p>",
+        "Type": "Passive",
+        "Effects":{
+            "Free Spell": ["Light", 0, "Charisma"]
+        }
     },
     "Lucky": {
 
@@ -66,5 +82,8 @@
     },
     "Trance": {
 
+    },
+    "Magical Tinkering": {
+        "Description": "<p>At 1st level, you've learned how to invest a spark of magic into mundane objects. To use this ability, you must have thieves' tools or artisan's tools in hand. You then touch a Tiny nonmagical object as an action and give it one of the following magical properties of your choice:</p><ul><li>The object sheds bright light in a 5-foot radius and dim light for an additional 5 feet.</li><li>Whenever tapped by a creature, the object emits a recorded message that can be heard up to 10 feet away. You utter the message when you bestow this property on the object, and the recording can be no more than 6 seconds long.</li><li>The object continuously emits your choice of an odor or a nonverbal sound (wind, waves, chirping, or the like). The chosen phenomenon is perceivable up to 10 feet away.</li><li>A static visual effect appears on one of the object's surfaces. This effect can be a picture, up to 25 words of text, lines and shapes, or a mixture of these elements, as you like.</li></ul><p>The chosen property lasts indefinitely. As an action, you can touch the object and end the property early. You can bestow magic on multiple objects, touching one object each time you use this feature, though a single object can only bear one property at a time. The maximum number of objects you can affect with this feature at one time is equal to your Intelligence modifier (minimum of one object). If you try to exceed your maximum, the oldest property immediately ends, and then the new property applies.</p>"
     }
 }

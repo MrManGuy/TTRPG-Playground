@@ -7,7 +7,7 @@
             "Size Options": ["Medium"],
             "Speed": 30,
             "Languages": ["Common", "Other"],
-            "Race Attributes": ["Darkvision", "Celesital Resistance", "Healing Hands", "Light Bearer", "Celesital Revelation"],
+            "Race Attributes": ["Darkvision", "Celesital Resistance", "Healing Hands", "Light Bearer"],
             "Sub Races": ["None", "Protector", "Scourge", "Fallen"]
         },
         "Dragonborn": {
@@ -90,6 +90,35 @@
         }
     },
     "Sub Races": {
-
+        "Aasimar": {
+            "Protector": {
+                "Ability Score Increase": ["Wisdom"],
+                "Attributes": ["Radiant Soul"]
+            },
+            "Scourge": {
+                "Ability Score Increase": ["Constitution"],
+                "Attributes": ["Radiant Consumption"]
+            },
+            "Fallen": {
+                "Ability Score Increase": ["Strength"],
+                "Attributes": ["Necrotic Shroud"]
+            }
+        },
+        "Dwarf": {
+            "Hill": {
+                "Ability Score Increase": ["Wisdom"],
+                "Attributes": ["Dwarven Toughness"]
+            },
+            "Mountain": {
+                "Ability Score Increase": ["Strength", "Strength"],
+                "Attributes": ["Dwarven Armor Training"]
+            }
+        },
+        "Tiefling": {
+            "Bloodline of Asmodeus": {
+                "Ability Score Increase": ["Intelligence"],
+                "Attributes": ["Infernal Legacy"]
+            }
+        }
     }
 }

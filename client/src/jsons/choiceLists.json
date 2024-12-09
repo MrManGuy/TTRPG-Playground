@@ -1,0 +1,7 @@
+{
+    "Language": [],
+    "Ability": ["Strength", "Dexterity", "Constitution", "Intelligence", "Wisdom", "Charisma"],
+    "Skill": [],
+    "Feat": [],
+    "Dragon": ["Black", "Blue", "Brass", "Bronze", "Copper", "Gold", "Green", "Red", "Silver", "White"]
+}

@@ -8,6 +8,7 @@ import raceFeatures from '../../jsons/races.json';
 import classFeatures from '../../jsons/classes.json';
 import weapons from '../../jsons/weapons.json';
 import attributes from '../../jsons/attributes.json';
+import choiceLists from '../../jsons/choiceLists.json';
 
 let characterList = [{
     "id": 1,
@@ -25,9 +26,10 @@ let characterList = [{
     "id": 4,
     "name": "Test"
 }]
+
 //["Artificer", "Barbarian", "Bard", "Cleric", "Druid", "Fighter", "Monk", "Paladin", "Ranger", "Rogue", "Sorcerer", "Warlock", "Wizard"]
 const classList = Object.keys(classFeatures["Main Classes"]);
-const abilities = ["Strength", "Dexterity", "Constitution", "Intelligence", "Wisdom", "Charisma"];
+const abilities = choiceLists["Ability"];
 const raceList = Object.keys(raceFeatures["Main Races"]);
 const baseChoices = {
     "UsingStartingEquipment": true,
@@ -47,10 +49,13 @@ const baseChoices = {
     "Equipment": []
 }
 
-const Characters = () => {
+const Characters = (props) => {
+    const { onRoll } = props;
     const [activeCharacter, setActiveCharacter] = useState('');
     const [creatingCharacter, setCreatingCharacter] = useState(0);
     const [chartacterChoices, setCharacterChoices] = useState(baseChoices);
+
+    //Manage Page Dice
 
     const setActive = (id) => {
         sessionStorage.setItem('selectedCharacter', id);
@@ -68,6 +73,20 @@ const Characters = () => {
             }
         return true;
     })}
+
+    const filterForChoice = (filter_list) => {
+        if(filter_list !== undefined){
+            return filter_list.filter(attribute => {
+                if(attributes[attribute]){
+                    return attributes[attribute]["Choice"] === true
+                }else{
+                    return false
+                }
+            })
+        }else{
+            return []
+        }
+    }
 
     const updateCharacterChoices = (choice, value) => {
         let newCharacterChoices = {...chartacterChoices};
@@ -150,6 +169,7 @@ const Characters = () => {
         if(character != null){
             setActiveCharacter(character);
         }   
+        onRoll("3d20@1,1,1", null);
         updateCharacterChoices("Class", chartacterChoices["Class"]);
   
         // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -262,32 +282,28 @@ const Characters = () => {
                             </Form.Group>
                     })}
                 </Row>
-                {raceFeatures["Main Races"][chartacterChoices["Race"]]["Race Attributes"].filter(attribute => {
-                    if(attributes[attribute]){
-                        return attributes[attribute]["Choice"] === true
-                    }else{
-                        return false
-                    }
-                }).length > 0 ? //One of the race attributes has a choice
+                {filterForChoice(raceFeatures["Main Races"][chartacterChoices["Race"]]["Race Attributes"]).length > 0 
+                || filterForChoice(raceFeatures["Sub Races"][chartacterChoices["Race"]]?.[chartacterChoices["Sub Race"]]?.["Attributes"]).length > 0 ? 
+                //One of the race attributes has a choice
                 <Fragment>
                 <Form.Label>
                     <h3 className="section_header">Race Selections</h3>
                 </Form.Label>
                 <Row className="mb-3">
-                    {raceFeatures["Main Races"][chartacterChoices["Race"]]["Race Attributes"].filter(attribute => {
-                        if(attributes[attribute]){
-                            return attributes[attribute]["Choice"] === true
-                        }else{
-                            return false
-                        }
-                    }).map(attribute => {
+                    {filterForChoice(raceFeatures["Main Races"][chartacterChoices["Race"]]["Race Attributes"]).concat(
+                        filterForChoice(raceFeatures["Sub Races"][chartacterChoices["Race"]]?.[chartacterChoices["Sub Race"]]?.["Attributes"])
+                    ).map(attribute => {
                         let attribute_body = attributes[attribute];
+                        let attribute_list = attribute_body["Choices"]
+                        if(attribute_body["Choices"].length === 1){
+                            attribute_list = choiceLists[attribute_body["Choices"][0].split(' ')[1]]
+                        }
                         return <Form.Group key={attribute} as={Col} lg={3} controlId={`characterCreation.character${attribute}`}>
                                     <Form.Label>{attribute_body["Choice Title"]}</Form.Label>
                                     <Form.Select
                                     onChange={e => updateCharacterChoices(attribute, e.target.value)}
                                     value={chartacterChoices[attribute]}>
-                                        {attribute_body["Choices"].map(choice => <option key={choice}>{`${choice}`}</option>)}
+                                        {attribute_list.map(choice => <option key={choice}>{`${choice}`}</option>)}
                                     </Form.Select>
                                 </Form.Group>
                     })}
@@ -419,7 +435,7 @@ const Characters = () => {
                         :
                         <p>This class has not been fleshed out yet</p>
                     }
-                    <Button className="full_width" variant="primary" type="submit">
+                    <Button className="full_width mb-3" variant="primary" type="submit">
                         Create!
                     </Button>
             </Form>

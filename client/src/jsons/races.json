@@ -6,7 +6,7 @@
             "Creature Type": "Humanoid",
             "Size Options": ["Medium"],
             "Speed": 30,
-            "Languages": ["Common", "Other"],
+            "Languages": ["Common", "Any Language"],
             "Race Attributes": ["Darkvision", "Celesital Resistance", "Healing Hands", "Light Bearer"],
             "Sub Races": ["None", "Protector", "Scourge", "Fallen"]
         },
@@ -74,7 +74,7 @@
             "Creature Type": "Humanoid",
             "Size Options": ["Medium"],
             "Speed": 30,
-            "Languages": ["Common", "Other"],
+            "Languages": ["Common", "Any Language"],
             "Race Attributes": [],
             "Sub Races": ["None", "Variant"]
         },
@@ -112,6 +112,49 @@
             "Mountain": {
                 "Ability Score Increase": ["Strength", "Strength"],
                 "Attributes": ["Dwarven Armor Training"]
+            }
+        },
+        "Elf": {
+            "Dark": {
+                "Ability Score Increase": ["Charisma"],
+                "Attributes": ["Superior Darkvision", "Sunlight Sensitivity", "Drow Magic", "Drow Weapon Training"]
+            }, 
+            "High": {
+                "Ability Score Increase": ["Intelligence"],
+                "Free Spell": ["Any Wizard", 0, "Intelligence"],
+                "Attributes": ["Elf Weapon Training", "Extra Language"]
+            }, 
+            "Wood": {
+                "Ability Score Increase": ["Wisdom"],
+                "Attributes": ["Elf Weapon Training", "Fleet of Foot", "Mask of the Wild"]
+            }
+        },
+        "Gnome": {
+            "Forest": {
+                "Ability Score Increase": ["Dexterity"],
+                "Attributes": ["Natural Illusionist", "Speak with Small Beasts"]
+            },
+            "Rock": {
+                "Ability Score Increase": ["Constitution"],
+                "Attributes": ["Artificer's Lore", "Tinker"]
+            }
+        },
+        "Halfling": {
+            "Lightfoot": {
+                "Ability Score Increase": ["Charisma"],
+                "Attributes": ["Naturally Stealthy"]
+            },
+            "Stout": {
+                "Ability Score Increase": ["Constitution"],
+                "Attributes": ["Stout Resilience"]
+            }
+        },
+        "Human": {
+            "Variant": {
+                "Replace": true,
+                "Ability Score Increase": ["1,1"], 
+                "Skill Choice": ["Any"],
+                "Feat Choice": ["Any"]
             }
         },
         "Tiefling": {

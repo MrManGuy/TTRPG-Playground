@@ -11,8 +11,6 @@ root.render(
   <React.StrictMode>
     <App />
   </React.StrictMode>
-  
-  // eslint-disable-next-line react-hooks/exhaustive-deps
 );
 
 // If you want to start measuring performance in your app, pass a function

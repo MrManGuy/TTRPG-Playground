@@ -51,11 +51,23 @@ const baseChoices = {
 
 const Characters = (props) => {
     const { onRoll } = props;
+    const [isDiceRoll, setIsDiceRoll] = useState(false);
     const [activeCharacter, setActiveCharacter] = useState('');
     const [creatingCharacter, setCreatingCharacter] = useState(0);
     const [chartacterChoices, setCharacterChoices] = useState(baseChoices);
 
     //Manage Page Dice
+    const rollAbility = async (ability) => {
+        setIsDiceRoll(true);
+        let result = await onRoll("4d6")
+        let smallest = 7
+        for(let dice of result["sets"][0]["rolls"]){
+            if(dice.value < smallest){
+                smallest = dice.value
+            }
+        }
+        updateCharacterChoices(["Ability Scores", ability], result["sets"][0]["total"] - smallest)
+    }
 
     const setActive = (id) => {
         sessionStorage.setItem('selectedCharacter', id);
@@ -63,6 +75,14 @@ const Characters = (props) => {
     }
 
     const abilityModifier = (score) => Math.floor((score - 10) / 2);
+
+    const getAbilityBonus = (ability) => {
+        let main_race = raceFeatures["Main Races"][chartacterChoices["Race"]]["Ability Score Increase"].filter(score => score === ability).length
+        let sub_race = raceFeatures["Sub Races"][chartacterChoices["Race"]]?.[chartacterChoices["Sub Race"]]?.["Ability Score Increase"].filter(score => score === ability).length
+        main_race = main_race === undefined ? 0 : main_race
+        sub_race = sub_race === undefined ? 0 : sub_race
+        return main_race + sub_race
+    }
 
     const filterForItem = (filter_list, properties) => {
         return Object.keys(filter_list).filter(weapon => {
@@ -168,8 +188,7 @@ const Characters = (props) => {
         let character = sessionStorage.getItem('selectedCharacter');
         if(character != null){
             setActiveCharacter(character);
-        }   
-        onRoll("3d20@1,1,1", null);
+        }
         updateCharacterChoices("Class", chartacterChoices["Class"]);
   
         // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -221,30 +240,30 @@ const Characters = (props) => {
                         </Form.Select>
                     </Form.Group>
 
-                    <Form.Group as={Col} lg={3} controlId="characterCreation.characterRace">
+                    <Form.Group as={Col} lg={3}>
                         <Form.Label>Subrace - Race</Form.Label>
                         <InputGroup className="mb-3">
-                            <Form.Select value={chartacterChoices["Sub Race"]} onChange={e => updateCharacterChoices("Sub Race", e.target.value)}>
+                            <Form.Select value={chartacterChoices["Sub Race"]} id={"characterCreation.characterSubRace"} onChange={e => updateCharacterChoices("Sub Race", e.target.value)}>
                             {
                                 raceFeatures["Main Races"][chartacterChoices["Race"]]["Sub Races"] !== undefined ? 
                                 raceFeatures["Main Races"][chartacterChoices["Race"]]["Sub Races"].map(raceName => <option key={raceName} value={raceName}>{raceName}</option>) :
                                 <option value="None">None</option>
                             }
                             </Form.Select>
-                            <Form.Select value={chartacterChoices["Race"]} onChange={e => updateCharacterChoices("Race", e.target.value)}>
+                            <Form.Select value={chartacterChoices["Race"]} id={"characterCreation.characterRace"} onChange={e => updateCharacterChoices("Race", e.target.value)}>
                                 {raceList.map(raceName => <option key={raceName} value={raceName}>{raceName}</option>)}
                             </Form.Select>
                         </InputGroup>
                         
                     </Form.Group>
 
-                    <Form.Group as={Col} lg={3} controlId="characterCreation.characterAlignment">
+                    <Form.Group as={Col} lg={3}>
                         <Form.Label>Alignment</Form.Label>
                         <InputGroup className="mb-3">
-                            <Form.Select value={chartacterChoices["Alignment"][0]} onChange={e => updateAlignment(e.target.value, 0)}>
+                            <Form.Select value={chartacterChoices["Alignment"][0]} id={"characterCreation.characterAlignment1"} onChange={e => updateAlignment(e.target.value, 0)}>
                                 {["Lawful", "Neutral", "Chaotic"].map(first => <option key={first}>{first}</option>)}
                             </Form.Select>
-                            <Form.Select value={chartacterChoices["Alignment"][1]} onChange={e => updateAlignment(e.target.value, 1)}>
+                            <Form.Select value={chartacterChoices["Alignment"][1]} id={"characterCreation.characterAlignment2"}onChange={e => updateAlignment(e.target.value, 1)}>
                                 {["Good", "Neutral", "Evil"].map(last => <option key={last}>{last}</option>)}
                             </Form.Select>
                         </InputGroup>
@@ -259,8 +278,7 @@ const Characters = (props) => {
                 </Form.Label>
                 <Row className="mb-3">
                     {abilities.map(ability => {
-                        let race_bonus = raceFeatures["Main Races"][chartacterChoices["Race"]]["Ability Score Increase"].includes(ability);
-                        let bonus_amount = raceFeatures["Main Races"][chartacterChoices["Race"]]["Ability Score Increase"].filter(score => score === ability).length
+                        let bonus_amount = getAbilityBonus(ability);
                         return <Form.Group key={ability} as={Col} lg={2} controlId={`characterCreation.character${ability}`}>
                                 <Form.Label>
                                     {ability} {
@@ -268,17 +286,25 @@ const Characters = (props) => {
                                     ? <strong>- Saving Throw</strong>
                                     : null}
                                 </Form.Label>
-                                <Form.Control type="number" defaultValue={10} onChange={e => {
-                                    clampAbilities(e)
-                                    if(chartacterChoices["Ability Scores"][ability] !== parseInt(e.target.value)){
-                                        updateCharacterChoices(["Ability Scores", ability], parseInt(e.target.value))
-                                    }
-                                }}/>
-                                <p>Modifier: {race_bonus ? 
-                                    <Fragment>{abilityModifier(chartacterChoices["Ability Scores"][ability] + bonus_amount)}, Race Bonus: +{bonus_amount}
+                                <InputGroup className="mb-3">
+                                    <Form.Control type="number" value={chartacterChoices["Ability Scores"][ability]} onChange={e => {
+                                        if(!isDiceRoll){
+                                            clampAbilities(e)
+                                            if(chartacterChoices["Ability Scores"][ability] !== parseInt(e.target.value)){
+                                                updateCharacterChoices(["Ability Scores", ability], parseInt(e.target.value))
+                                            }
+                                        }else{
+                                            setIsDiceRoll(false)
+                                        }
+                                    }}/>
+                                    <Button onClick={() => rollAbility(ability)}>Roll</Button>
+                                    </InputGroup>
+                                <p>Modifier: {bonus_amount > 0 ? 
+                                    <Fragment>{abilityModifier(chartacterChoices["Ability Scores"][ability] + bonus_amount)}, Race Bonus: + {bonus_amount}
                                     </Fragment> : 
                                     abilityModifier(chartacterChoices["Ability Scores"][ability])}
                                 </p>
+                                
                             </Form.Group>
                     })}
                 </Row>
@@ -321,7 +347,6 @@ const Characters = (props) => {
                     {classFeatures["Main Classes"][chartacterChoices["Class"]] !== undefined ?
                         <Fragment>
                         <Row className="mb-3">
-                        <p><strong>Hit Die:</strong> {classFeatures["Main Classes"][chartacterChoices["Class"]]["Hit Die"]}</p>
                         {Object.keys(classFeatures["Main Classes"][chartacterChoices["Class"]]["Proficiencies"]).map(key => {
                             //The proficiency is a choice
                             if(Array.isArray(classFeatures["Main Classes"][chartacterChoices["Class"]]["Proficiencies"][key][0])){
@@ -340,23 +365,19 @@ const Characters = (props) => {
                                 </Fragment>
                             }
                             //The proficiency is forced
-                            return <p key={key.replaceAll(" ", "")}>
-                                <strong>{key}:</strong> {classFeatures["Main Classes"][chartacterChoices["Class"]]["Proficiencies"][key].length !== 0 ? 
-                                classFeatures["Main Classes"][chartacterChoices["Class"]]["Proficiencies"][key].join(', ') : 
-                                "None"}
-                            </p>
+                            return <Fragment key={key}></Fragment>
                         })}
                         </Row>
                         <Form.Label>
                             <h3 className="section_header">Equipment Selections</h3>
                         </Form.Label>
-                        <Form.Group as={Col} lg={3} controlId="characterCreation.equipmentChoice">
+                        <Form.Group as={Col} lg={3}>
                             <Form.Label>Starting Equipment</Form.Label>
                             <div className="inline_radio">
                                 <Form.Check
                                     inline
                                     label="Items"
-                                    name="equipmentChoice"
+                                    name="characterCreation.equipmentChoice"
                                     type="radio"
                                     id={`equipmentChoice-1`}
                                     checked={chartacterChoices["UsingStartingEquipment"]}
@@ -365,7 +386,7 @@ const Characters = (props) => {
                                 <Form.Check
                                     inline
                                     label="Gold"
-                                    name="equipmentChoice"
+                                    name="characterCreation.equipmentChoice"
                                     type="radio"
                                     id={`equipmentChoice-2`}
                                     checked={!chartacterChoices["UsingStartingEquipment"]}

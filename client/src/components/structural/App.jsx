@@ -11,23 +11,24 @@ import { Dice } from "../functional/DiceBox";
 // initialize the Dice Box outside of the component
 Dice.initialize().then(() => {
     // clear dice on click anywhere on the screen
+    window.dispatchEvent(new Event('resize'));
     document.addEventListener("mousedown", () => {
     const diceBoxCanvas = document.querySelector("#dice-box canvas");
     if (diceBoxCanvas instanceof HTMLElement && window.getComputedStyle(diceBoxCanvas).display !== "none") {
         Dice.clearDice();
     }
     });
-  }).catch((e) => console.error(e));
+}).catch((e) => console.error(e));
 
 const App = () => {
     // This method is triggered whenever dice are finished rolling
     Dice.onRollComplete = (results) => {
-        console.log(results);
+        return results
     };
 
     // trigger dice roll
-    const rollDice = (notation, group) => {
-        Dice.roll(notation);
+    const rollDice = (notation) => {
+        return Dice.roll(notation);
     };
 
     return <BrowserRouter>

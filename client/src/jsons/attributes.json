@@ -1,4 +1,11 @@
 {
+    "Ability Score Improvement": {
+        "Description": "<p>When you reach 4th level, 8th, 12th, 16th, and 19th level, you can increase one ability score of your choice by 2, or you can increase two ability scores of your choice by 1. As normal, you can't increase an ability score above 20 using this feature.</p>",
+        "Type": "Passive",
+        "Choice": true,
+        "Choices": ["Any Ability", "Any Ability"],
+        "Choice Title": "Ability Score Improvement"
+    },
     "Artificer's Lore": {
         "Description": "<p>Whenever you make an Intelligence (History) check related to magical, alchemical, or technological items, you can add twice your proficiency bonus instead of any other proficiency bonus that may apply.</p>",
         "Type": "Passive"
@@ -15,6 +22,13 @@
         "Type": "Passive",
         "Effects": {
             "Resistances": ["Necrotic", "Radiant"]
+        }
+    },
+    "Danger Sense":{
+        "Description": "<p>At 2nd level, you gain an uncanny sense of when things nearby aren't as they should be, giving you an edge when you dodge away from danger. You have advantage on Dexterity saving throws against effects that you can see, such as traps and spells. To gain this benefit, you can't be blinded, deafened, or incapacitated.</p>",
+        "Type": "Passive",
+        "Effects": {
+            "Advantages": ["Dexterity"]
         }
     },
     "Darkvision": {
@@ -39,7 +53,7 @@
         "Type": "Passive",
         "Effects": {
             "Proficiencies": {
-                "Weapons": ["Rapier", "Shortsword", "Crossbow (hand)"]
+                "Weapon": ["Rapier", "Shortsword", "Crossbow (hand)"]
             }
         }
     },
@@ -57,7 +71,7 @@
         "Type": "Passive",
         "Effects": {
             "Proficiencies": {
-                "Weapons": ["Battleaxe", "Handaxe", "Light hammer", "Warhammer"]
+                "Weapon": ["Battleaxe", "Handaxe", "Light hammer", "Warhammer"]
             }
         }
     },
@@ -81,9 +95,13 @@
         "Type": "Passive",
         "Effects": {
             "Proficiencies": {
-                "Weapons": ["Longsword", "Shortsword", "Shortbow", "Longbow"]
+                "Weapon": ["Longsword", "Shortsword", "Shortbow", "Longbow"]
             }
         }
+    },
+    "Extra Attack": {
+        "Description": "<p>Beginning at 5th level, you can attack twice, instead of once, whenever you take the Attack action on your turn.</p>",
+        "Type": "Passive"
     },
     "Extra Language": {
         "Description": "<p>You can read, speak, and write one additional language of your choice.</p>",
@@ -91,6 +109,10 @@
         "Choice": true,
         "Choices": ["Any Language"],
         "Choice Title": "Extra Language"
+    },
+    "Fast Movement": {
+        "Description": "<p>Starting at 5th level, your speed increases by 10 feet while you aren't wearing heavy armor.</p>",
+        "Type": "Passive"
     },
     "Fey Ancestry": {
         "Description": "<p>You have advantage on saving throws against being charmed, and magic can't put you to sleep.</p>",
@@ -133,12 +155,29 @@
         "Description": "<p>You know the Thaumaturgy cantrip. Once you reach 3rd level, you can cast the Hellish Rebuke spell once as a 2nd-level spell. Once you reach 5th level, you can also cast the Darkness spell once. You must finish a long rest to cast these spells again with this trait. Charisma is your spellcasting ability for these spells.</p>",
         "Type": "Passive"
     },
+    "Infuse Item": {
+        "Sub Attributes": ["Infusions Known", "Infusing an Item"],
+        "Description": "<p>At 2nd level, you've gained the ability to imbue mundane items with certain magical infusions, turning those objects into magic items.</p>",
+        "Type": "Mixed"
+    },
+    "Infusing an Item": {
+        "Description": "<p>Whenever you finish a long rest, you can touch a nonmagical object and imbue it with one of your artificer infusions, turning it into a magic item. An infusion works on only certain kinds of objects, as specified in the infusion's description. If the item requires attunement, you can attune yourself to it the instant you infuse the item. If you decide to attune to the item later, you must do so using the normal process for attunement (see the attunement rules in the Dungeon Master's Guide). Your infusion remains in an item indefinitely, but when you die, the infusion vanishes after a number of days equal to your Intelligence modifier (minimum of 1 day). The infusion also vanishes if you replace your knowledge of the infusion. You can infuse more than one nonmagical object at the end of a long rest; the maximum number of objects appears in the Infused Items column of the Artificer table. You must touch each of the objects, and each of your infusions can be in only one object at a time. Moreover, no object can bear more than one of your infusions at a time. If you try to exceed your maximum number of infusions, the oldest infusion ends, and then the new infusion applies. If an infusion ends on an item that contains other things, like a bag of holding, its contents harmlessly appear in and around its space.</p>",
+        "Type": "Action"
+    },
+    "Infusions Known": {
+        "Description": "<p>When you gain this feature, pick four artificer infusions to learn. You learn additional infusions of your choice when you reach certain levels in this class, as shown in the Infusions Known column of the Artificer table. Whenever you gain a level in this class, you can replace one of the artificer infusions you learned with a new one.</p>",
+        "Type": "Passive",
+        "Choice": true,
+        "Choice Amount": "CLevel",
+        "Choices": ["Any Artificer Infusion"],
+        "Choice Title": "Extra Language"
+    },
     "Keen Senses": {
         "Description": "<p>You have proficiency in the Perception skill.</p>",
         "Type": "Passive",
         "Effects": {
             "Proficiencies": {
-                "Skills": ["Perception"]
+                "Skill": ["Perception"]
             }
         }
     },
@@ -152,6 +191,10 @@
     "Lucky": {
         "Description": "<p>When you roll a 1 on an attack roll, ability check, or saving throw, you can reroll the die. You must use the new result, even if it is a 1.</p>",
         "Type": "Passive"
+    },
+    "Magical Tinkering": {
+        "Description": "<p>At 1st level, you've learned how to invest a spark of magic into mundane objects. To use this ability, you must have thieves' tools or artisan's tools in hand. You then touch a Tiny nonmagical object as an action and give it one of the following magical properties of your choice:</p><ul><li>The object sheds bright light in a 5-foot radius and dim light for an additional 5 feet.</li><li>Whenever tapped by a creature, the object emits a recorded message that can be heard up to 10 feet away. You utter the message when you bestow this property on the object, and the recording can be no more than 6 seconds long.</li><li>The object continuously emits your choice of an odor or a nonverbal sound (wind, waves, chirping, or the like). The chosen phenomenon is perceivable up to 10 feet away.</li><li>A static visual effect appears on one of the object's surfaces. This effect can be a picture, up to 25 words of text, lines and shapes, or a mixture of these elements, as you like.</li></ul><p>The chosen property lasts indefinitely. As an action, you can touch the object and end the property early. You can bestow magic on multiple objects, touching one object each time you use this feature, though a single object can only bear one property at a time. The maximum number of objects you can affect with this feature at one time is equal to your Intelligence modifier (minimum of one object). If you try to exceed your maximum, the oldest property immediately ends, and then the new property applies.</p>",
+        "Type": "Action"
     },
     "Mask of the Wild": {
         "Description": "<p>You can attempt to hide even when you are only lightly obscured by foliage, heavy rain, falling snow, mist, and other natural phenomena.</p>",
@@ -168,7 +211,9 @@
         "Description": "<p>You have proficiency in the Athletics skill.</p>",
         "Type": "Passive",
         "Effects" : {
-            "Skills": ["Athletics"]
+            "Proficiencies": {
+                "Skill": ["Athletics"]
+            }
         }
     },
     "Natural Illusionist": {
@@ -182,6 +227,13 @@
         "Description": "<p>You can attempt to hide even when you are only obscured by a creature that is at least one size larger than you.</p>",
         "Type": "Passive"
     },
+    "Necrotic Shroud": {
+        "Description": "<p>Starting at 3rd level, you can use your action to unleash the divine energy within yourself, causing your eyes to turn into pools of darkness and two skeletal, ghostly, flightless wings to sprout from your back. The instant you transform, other creatures within 10 feet of you that can see you must each succeed on a Charisma saving throw (DC 8 + your proficiency bonus + your Charisma modifier) or become frightened of you until the end of your next turn.<ul><li>Your transformation lasts for 1 minute or until you end it as a bonus action. During it, once on each of your turns, you can deal extra necrotic damage to one target when you deal damage to it with an attack or a spell. The extra necrotic damage equals your level.</li><li>Once you use this trait, you can't use it again until you finish a long rest.</li></ul></p>",
+        "Type": "Action",
+        "Limit": 1,
+        "Limit Reset": "Long Rest",
+        "Level Requirement": 3
+    },
     "Nimble": {
         "Description": "<p>You can move through the space of any creature that is of a size larger than yours.</p>",
         "Type": "Passive"
@@ -189,6 +241,36 @@
     "Powerful Build": {
         "Description": "<p>You count as one size larger when determining your carrying capacity and the weight you can push, drag, or lift.</p>",
         "Type": "Passive"
+    },
+    "Primal Knowledge": {
+        "Description": "<p>When you reach 3rd level and again at 10th level, you gain proficiency in one skill of your choice from the list of skills available to barbarians at 1st level.</p>",
+        "Type": "Passive",
+        "Choice": true,
+        "Choices": ["Any Skill"],
+        "Choice Title": "Primal Knowledge"
+    },
+    "Radiant Consumption": {
+        "Description": "<p>Starting at 3rd level, you can use your action to unleash the divine energy within yourself, causing a searing light to radiate from you, pour out of your eyes and mouth, and threaten to char you.<ul><li>Your transformation lasts for 1 minute or until you end it as a bonus action. During it, you shed bright light in a 10-foot radius and dim light for an additional 10 feet, and at the end of each of your turns, you and each creature within 10 feet of you take radiant damage equal to half your level (rounded up). In addition, once on each of your turns, you can deal extra radiant damage to one target when you deal damage to it with an attack or a spell. The extra radiant damage equals your level.</li><li>Once you use this trait, you can't use it again until you finish a long rest.</li></ul></p>",
+        "Type": "Action",
+        "Limit": 1,
+        "Limit Reset": "Long Rest",
+        "Level Requirement": 3
+    },
+    "Radiant Soul": {
+        "Description": "<p>Starting at 3rd level, you can use your action to unleash the divine energy within yourself, causing your eyes to glimmer and two luminous, incorporeal wings to sprout from your back.<ul><li>Your transformation lasts for 1 minute or until you end it as a bonus action. During it, you have a flying speed of 30 feet, and once on each of your turns, you can deal extra radiant damage to one target when you deal damage to it with an attack or a spell. The extra radiant damage equals your level.</li><li>Once you use this trait, you can't use it again until you finish a long rest.</li></ul></p>",
+        "Type": "Action",
+        "Limit": 1,
+        "Limit Reset": "Long Rest",
+        "Level Requirement": 3
+    },
+    "Rage":{
+        "Description": "<p>In battle, you fight with primal ferocity. On your turn, you can enter a rage as a bonus action. While raging, you gain the following benefits if you aren't wearing heavy armor: <ul><li>You have advantage on Strength checks and Strength saving throws.</li><li>When you make a melee weapon attack using Strength, you gain a bonus to the damage roll that increases as you gain levels as a barbarian, as shown in the Rage Damage column of the Barbarian table.</li><li>You have resistance to bludgeoning, piercing, and slashing damage.</li></ul>If you are able to cast spells, you can't cast them or concentrate on them while raging. Your rage lasts for 1 minute. It ends early if you are knocked unconscious or if your turn ends and you haven't attacked a hostile creature since your last turn or taken damage since then. You can also end your rage on your turn as a bonus action. Once you have raged the number of times shown for your barbarian level in the Rages column of the Barbarian table, you must finish a long rest before you can rage again.</p>",
+        "Type": "Bonus Action",
+        "Limit Reset": "Long Rest"
+    },
+    "Reckless Attack": {
+        "Description": "<p>Starting at 2nd level, you can throw aside all concern for defense to attack with fierce desperation. When you make your first attack on your turn, you can decide to attack recklessly. Doing so gives you advantage on melee weapon attack rolls using Strength during this turn, but attack rolls against you have advantage until your next turn.</p>",
+        "Type": "Action"
     },
     "Speak with Small Beasts": {
         "Description": "<p>Through sound and gestures, you may communicate simple ideas with Small or smaller beasts.</p>",
@@ -223,6 +305,10 @@
         "Description": "<p>Your darkvision has a range of 120 feet, instead of 60.</p>",
         "Type": "Passive"
     },
+    "The Right Tool for the Job": {
+        "Description": "<p>At 3rd level, you've learned how to produce exactly the tool you need: with thieves' tools or artisan's tools in hand, you can magically create one set of artisan's tools in an unoccupied space within 5 feet of you. This creation requires 1 hour of uninterrupted work, which can coincide with a short or long rest. Though the product of magic, the tools are nonmagical, and they vanish when you use this feature again.</p>",
+        "Type": "Action"
+    },
     "Tinker": {
         "Description": "<p>You have proficiency with artisan tools (tinker's tools). Using those tools, you can spend 1 hour and 10 gp worth of materials to construct a Tiny clockwork device (AC 5, 1 hp). The device ceases to function after 24 hours (unless you spend 1 hour repairing it to keep the device functioning), or when you use your action to dismantle it; at that time, you can reclaim the materials used to create it. You can have up to three such devices active at a time. When you create a device, choose one of the following options: <ul><li>Clockwork Toy. This toy is a clockwork animal, monster, or person, such as a frog, mouse, bird, dragon, or soldier. When placed on the ground, the toy moves 5 feet across the ground on each of your turns in a random direction. It makes noises as appropriate to the creature it represents.</li><li>Fire Starter. The device produces a miniature flame, which you can use to light a candle, torch, or campfire. Using the device requires your action.</li><li>Music Box. When opened, this music box plays a single song at a moderate volume. The box stops playing when it reaches the song's end or when it is closed.</li><li>At your DM's discretion, you may make other objects with effects similar in power to these. The Prestidigitation cantrip is a good baseline for such effects.</li></ul></p>"
     },
@@ -237,28 +323,8 @@
         "Description": "<p>Elves do not sleep. Instead they meditate deeply, remaining semi-conscious, for 4 hours a day. The Common word for this meditation is \"trance.\" While meditating, you dream after a fashion; such dreams are actually mental exercises that have become reflexive after years of practice. After resting in this way, you gain the same benefit a human would from 8 hours of sleep.</p>",
         "Type": "Passive"
     },
-    "Magical Tinkering": {
-        "Description": "<p>At 1st level, you've learned how to invest a spark of magic into mundane objects. To use this ability, you must have thieves' tools or artisan's tools in hand. You then touch a Tiny nonmagical object as an action and give it one of the following magical properties of your choice:</p><ul><li>The object sheds bright light in a 5-foot radius and dim light for an additional 5 feet.</li><li>Whenever tapped by a creature, the object emits a recorded message that can be heard up to 10 feet away. You utter the message when you bestow this property on the object, and the recording can be no more than 6 seconds long.</li><li>The object continuously emits your choice of an odor or a nonverbal sound (wind, waves, chirping, or the like). The chosen phenomenon is perceivable up to 10 feet away.</li><li>A static visual effect appears on one of the object's surfaces. This effect can be a picture, up to 25 words of text, lines and shapes, or a mixture of these elements, as you like.</li></ul><p>The chosen property lasts indefinitely. As an action, you can touch the object and end the property early. You can bestow magic on multiple objects, touching one object each time you use this feature, though a single object can only bear one property at a time. The maximum number of objects you can affect with this feature at one time is equal to your Intelligence modifier (minimum of one object). If you try to exceed your maximum, the oldest property immediately ends, and then the new property applies.</p>"
-    },
-    "Radiant Soul": {
-        "Description": "<p>Starting at 3rd level, you can use your action to unleash the divine energy within yourself, causing your eyes to glimmer and two luminous, incorporeal wings to sprout from your back.<ul><li>Your transformation lasts for 1 minute or until you end it as a bonus action. During it, you have a flying speed of 30 feet, and once on each of your turns, you can deal extra radiant damage to one target when you deal damage to it with an attack or a spell. The extra radiant damage equals your level.</li><li>Once you use this trait, you can't use it again until you finish a long rest.</li></ul></p>",
-        "Type": "Action",
-        "Limit": 1,
-        "Limit Reset": "Long Rest",
-        "Level Requirement": 3
-    },
-    "Radiant Consumption": {
-        "Description": "<p>Starting at 3rd level, you can use your action to unleash the divine energy within yourself, causing a searing light to radiate from you, pour out of your eyes and mouth, and threaten to char you.<ul><li>Your transformation lasts for 1 minute or until you end it as a bonus action. During it, you shed bright light in a 10-foot radius and dim light for an additional 10 feet, and at the end of each of your turns, you and each creature within 10 feet of you take radiant damage equal to half your level (rounded up). In addition, once on each of your turns, you can deal extra radiant damage to one target when you deal damage to it with an attack or a spell. The extra radiant damage equals your level.</li><li>Once you use this trait, you can't use it again until you finish a long rest.</li></ul></p>",
-        "Type": "Action",
-        "Limit": 1,
-        "Limit Reset": "Long Rest",
-        "Level Requirement": 3
-    },
-    "Necrotic Shroud": {
-        "Description": "<p>Starting at 3rd level, you can use your action to unleash the divine energy within yourself, causing your eyes to turn into pools of darkness and two skeletal, ghostly, flightless wings to sprout from your back. The instant you transform, other creatures within 10 feet of you that can see you must each succeed on a Charisma saving throw (DC 8 + your proficiency bonus + your Charisma modifier) or become frightened of you until the end of your next turn.<ul><li>Your transformation lasts for 1 minute or until you end it as a bonus action. During it, once on each of your turns, you can deal extra necrotic damage to one target when you deal damage to it with an attack or a spell. The extra necrotic damage equals your level.</li><li>Once you use this trait, you can't use it again until you finish a long rest.</li></ul></p>",
-        "Type": "Action",
-        "Limit": 1,
-        "Limit Reset": "Long Rest",
-        "Level Requirement": 3
+    "Unarmored Defense": {
+        "Description": "<p>While you are not wearing any armor, your armor class equals 10 + your Dexterity modifier + your Constitution modifier. You can use a shield and still gain this benefit.</p>",
+        "Type": "Passive"
     }
 }

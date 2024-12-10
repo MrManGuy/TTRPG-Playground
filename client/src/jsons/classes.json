@@ -1,72 +1,826 @@
 {
-    "Main Classes": {
-        "Artificer": {
-            "Hit Die": "1d8",
-            "Proficiencies": {
-                "Armor": ["Light", "Medium", "Shields"],
-                "Weapons": ["Simple", "Firearm"],
-                "Tools": ["Thieves' tools", "Tinker's tools"],
-                "Saving Throws": ["Constitution", "Intelligence"],
-                "Skill Choice": [[1, "Arcana", "History", "Investigation", "Medicine", "Nature", "Perception", "Sleight of Hand"], [2, "Arcana", "History", "Investigation", "Medicine", "Nature", "Perception", "Sleight of Hand"]]
-            },
-            "Starting Equipment": {
-                "Weapon Choice": [[1, "Any", "Simple Weapons"], [2, "Any", "Simple Weapons"]],
-                "Forced Items": ["Light Crossbow", "20 Bolts"],
-                "Armor Choice": [["Studded Leather", "Scale Mail"]] ,
-                "Pack Choice": [["Thieves' tools", "Dungeoneer's pack"]],
-                "Gold Alternative": "5d4x10"
-            },
-            "SpellCastingAbility": "Intelligence",
-            "Levels": [{
-                "Features": ["Magical Tinkering"],
-                "Spell Slots": [2, 2, 0, 0, 0, 0]
-            }, {
-                "Features": ["Infuse Item"],
-                "Spell Slots": [2, 2, 0, 0, 0, 0],
-                "Infusions": [4, 2]
-            }, {
-                "Features": ["Artificer Specialist", "The Right Tool for the Job"],
-                "Spell Slots": [2, 3, 0, 0, 0, 0],
-                "Infusions": [4, 2]
-            }, {
-                "Features": ["Ability Score Improvement"],
-                "Spell Slots": [2, 3, 0, 0, 0, 0],
-                "Infusions": [4, 2]
-            }, {
-                "Features": ["Artificer Specialist feature"],
-                "SpellSlots": [2, 4, 2, 0, 0, 0],
-                "Infusions": [4, 2]
-            }]
+    "Artificer": {
+        "Hit Die": "1d8",
+        "Proficiencies": {
+            "Armor": ["Light", "Medium", "Shields"],
+            "Weapon": ["Simple", "Firearm"],
+            "Tool": ["Thieves' tools", "Tinker's tools"],
+            "Saving Throws": ["Constitution", "Intelligence"],
+            "Skill": [[1, "Arcana", "History", "Investigation", "Medicine", "Nature", "Perception", "Sleight of Hand"], [2, "Arcana", "History", "Investigation", "Medicine", "Nature", "Perception", "Sleight of Hand"]]
         },
-        "Barbarian": {
-            "Hit Die": "1d12",
-            "Proficiencies": {
-                "Armor": ["Light", "Medium", "Shields"],
-                "Weapons": ["Simple", "Martial"],
-                "Tools": [],
-                "Saving Throws": ["Strength", "Constitution"],
-                "Skill Choice": [[1, "Animal Handling", "Athletics", "Intimidation", "Nature", "Perception", "Survival"], [2, "Animal Handling", "Athletics", "Intimidation", "Nature", "Perception", "Survival"]]
+        "Starting Equipment": {
+            "Weapon Choice": [[1, "Any", "Simple Weapons"], [2, "Any", "Simple Weapons"]],
+            "Forced Items": ["Crossbow (light)", "20 Bolts"],
+            "Armor Choice": [["Studded Leather", "Scale Mail"]],
+            "Pack Choice": [["Thieves' tools", "Dungeoneer's pack"]],
+            "Gold Alternative": "5d4x10"
+        },
+        "Spell Casting Ability": "Intelligence",
+        "Levels": [{
+            "Attributes": ["Magical Tinkering"],
+            "Spell Slots": [2, 2, 0, 0, 0, 0]
+        }, {
+            "Attributes": ["Infuse Item"],
+            "Spell Slots": [2, 2, 0, 0, 0, 0],
+            "Infusions": [4, 2]
+        }, {
+            "Attributes": ["Sub Class Choice", "The Right Tool for the Job"],
+            "Spell Slots": [2, 3, 0, 0, 0, 0],
+            "Infusions": [4, 2]
+        }, {
+            "Attributes": ["Ability Score Improvement"],
+            "Spell Slots": [2, 3, 0, 0, 0, 0],
+            "Infusions": [4, 2]
+        }, {
+            "Attributes": ["Sub Class Feature"],
+            "SpellSlots": [2, 4, 2, 0, 0, 0],
+            "Infusions": [4, 2]
+        }],
+        "Sub Class Name": "Artificer Specialist",
+        "Sub Classes": {
+            "Alchemist": {
+                "Source": "Tasha's Cauldron of Everything"
             },
-            "Starting Equipment": {
-                "Weapon Choice": [[1, "Any", "Martial Melee Weapons"], [2, "Any", "Simple Weapons", "2x Handaxe"]],
-                "Forced Items": ["Explorer's pack", "Four javelins"],
-                "Gold Alternative": "2d4x10"
+            "Armorer": {
+                "Source": "Tasha's Cauldron of Everything"
             },
-            "Levels": [{
-                "Features": ["Rage", "Unarmored Defense"]
-            }, {
-                "Features": ["Reckless Attack", "Danger Sense"]
-            }, {
-                "Features": ["Primal Path", "Primal Knowledge"]
-            }, {
-                "Features": ["Ability Score Improvement"]
-            }, {
-                "Features": ["Extra Attack", "Fast Movement"]
-            }]
+            "Artillerist": {
+                "Source": "Tasha's Cauldron of Everything"
+            },
+            "Battle Smith": {
+                "Source": "Tasha's Cauldron of Everything"
+            }
         }
     },
-    "Sub Classes": {
-
+    "Barbarian": {
+        "Hit Die": "1d12",
+        "Proficiencies": {
+            "Armor": ["Light", "Medium", "Shields"],
+            "Weapon": ["Simple", "Martial"],
+            "Tool": [],
+            "Saving Throws": ["Strength", "Constitution"],
+            "Skill": [[1, "Animal Handling", "Athletics", "Intimidation", "Nature", "Perception", "Survival"], [2, "Animal Handling", "Athletics", "Intimidation", "Nature", "Perception", "Survival"]]
+        },
+        "Starting Equipment": {
+            "Weapon Choice": [[1, "Any", "Martial Melee Weapons"], [2, "Any", "Simple Weapons", "2x Handaxe"]],
+            "Forced Items": ["Explorer's pack", "Four javelins"],
+            "Gold Alternative": "2d4x10"
+        },
+        "Levels": [{
+            "Attributes": ["Rage", "Unarmored Defense"],
+            "Rage": [2, 2]
+        }, {
+            "Attributes": ["Reckless Attack", "Danger Sense"],
+            "Rage": [2, 2]
+        }, {
+            "Attributes": ["Sub Class Choice", "Primal Knowledge"],
+            "Rage": [3, 2]
+        }, {
+            "Attributes": ["Ability Score Improvement"],
+            "Rage": [3, 2]
+        }, {
+            "Attributes": ["Extra Attack", "Fast Movement"],
+            "Rage": [3, 2]
+        }],
+        "Sub Class Name": "Primal Path",
+        "Sub Classes": {
+            "Ancestral Guardian": {
+                "Source": "Xanathar's Guide to Everything"
+            },
+            "Battlerager": {
+                "Source": "Sword Coast Adventurer's Guide"
+            },
+            "Beast": {
+                "Source": "Tasha's Cauldron of Everything"
+            },
+            "Berserker": {
+                "Source": "Player's Handbook"
+            },
+            "Giant": {
+                "Source": "Bigby Presents: Glory of the Giants"
+            },
+            "Storm Herald": {
+                "Source": "Xanathar's Guide to Everything"
+            },
+            "Totem Warrior": {
+                "Source": "Player's Handbook"
+            },
+            "Wild Magic": {
+                "Source": "Tasha's Cauldron of Everything"
+            },
+            "Zealot": {
+                "Source": "Xanathar's Guide to Everything"
+            }
+        }
+    },
+    "Bard": {
+        "Hit Die": "1d8",
+        "Proficiencies": {
+            "Armor": ["Light"],
+            "Weapon": ["Simple", "Crossbow (hand)", "Longsword", "Rapier", "Shortsword"],
+            "Tool": [[1, "Any", "Instruments"], [2, "Any", "Instruments"], [3, "Any", "Instruments"]],
+            "Saving Throws": ["Dexterity", "Charisma"],
+            "Skill": [[1, "Any", "Skill"], [2, "Any", "Skill"], [3, "Any", "Skill"]]
+        },
+        "Starting Equipment": {
+            "Weapon Choice": [[1, "Any", "Simple Weapons", "Rapier", "Longsword"]],
+            "Pack Choice": [["Diplomat's pack", "Entertainer's pack"]],
+            "Instrument Choice": [[1, "Any", "Instruments"]],
+            "Forced Items": ["Leather Armor", "Dagger"],
+            "Gold Alternative": "5d4x10"
+        },
+        "Spell Casting Ability": "Charisma",
+        "Levels": [{
+            "Attributes": ["Bardic Inspiration"],
+            "Spell Slots": [2, 2, 0, 0, 0, 0]
+        }, {
+            "Attributes": ["Jack of All Trades", "Song of Rest", "Magical Inspiration"],
+            "Spell Slots": [2, 3, 0, 0, 0, 0]
+        }, {
+            "Attributes": ["Sub Class Choice", "Expertise"],
+            "Spell Slots": [2, 4, 2, 0, 0, 0]
+        }, {
+            "Attributes": ["Ability Score Improvement", "Bardic Versatility"],
+            "Spell Slots": [2, 4, 3, 0, 0, 0]
+        }, {
+            "Attributes": ["Font of Inspiration"],
+            "Spell Slots": [2, 4, 3, 2, 0, 0]
+        }],
+        "Sub Class Name": "Bard College",
+        "Sub Classes": {
+            "Creation": {
+                "Source": "Tasha's Cauldron of Everything"
+            },
+            "Eloquence": {
+                "Source": "Tasha's Cauldron of Everything"
+            },
+            "Glamour": {
+                "Source": "Xanathar's Guide to Everything"
+            },
+            "Lore": {
+                "Source": "Player's Handbook"
+            },
+            "Spirits": {
+                "Source": "Van Richten's Guide to Ravenloft"
+            },
+            "Swords": {
+                "Source": "Xanathar's Guide to Everything"
+            },
+            "Valor": {
+                "Source": "Player's Handbook"
+            },
+            "Whispers": {
+                "Source": "Xanathar's Guide to Everything"
+            }
+        }
+    },
+    "Cleric": {
+        "Hit Die": "1d8",
+        "Proficiencies": {
+            "Armor": ["Light", "Medium", "Shields"],
+            "Weapon": ["Simple"],
+            "Tool": [],
+            "Saving Throws": ["Wisdom", "Charisma"],
+            "Skill": [[1, "History", "Insight", "Medicine", "Persuasion", "Religion"], [2, "History", "Insight", "Medicine", "Persuasion", "Religion"]]
+        },
+        "Starting Equipment": {
+            "Weapon Choice": [["Mace", "Warhammer"], [2, "Any", "Simple Weapons"]],
+            "Armor Choice": [["Scale Mail", "Leather Armor", "Chain Mail"]],
+            "Pack Choice": [["Priest's pack", "Explorer's pack"]],
+            "Instrument Choice": [[1, "Any", "Instruments"]],
+            "Forced Items": ["Shield", "Holy Symbol"],
+            "Gold Alternative": "5d4x10"
+        },
+        "Spell Casting Ability": "Wisdom",
+        "Levels": [{
+            "Attributes": ["Sub Class Choice"],
+            "Spell Slots": [3, 2, 0, 0, 0, 0]
+        }, {
+            "Attributes": ["Channel Divinity", "Sub Class Feature", "Harness Divine Power"],
+            "Spell Slots": [3, 3, 0, 0, 0, 0]
+        }, {
+            "Attributes": [],
+            "Spell Slots": [3, 4, 2, 0, 0, 0]
+        }, {
+            "Attributes": ["Ability Score Improvement", "Cantrip Versatility"],
+            "Spell Slots": [4, 4, 3, 0, 0, 0]
+        }, {
+            "Attributes": ["Destroy Undead"],
+            "Spell Slots": [4, 4, 3, 2, 0, 0]
+        }],
+        "Sub Class Name": "Divine Domain",
+        "Sub Classes": {
+            "Arcana": {
+                "Source": "Sword Coast Adventurer's Guide"
+            },
+            "Death": {
+                "Source": "Dungeon Master's Guide"
+            },
+            "Forge": {
+                "Source": "Xanathar's Guide to Everything"
+            },
+            "Grave": {
+                "Source": "Xanathar's Guide to Everything"
+            },
+            "Knowledge": {
+                "Source": "Player's Handbook"
+            },
+            "Life": {
+                "Source": "Player's Handbook"
+            },
+            "Light": {
+                "Source": "Player's Handbook"
+            },
+            "Nature": {
+                "Source": "Player's Handbook"
+            },
+            "Order": {
+                "Source": "Tasha's Cauldron of Everything"
+            },
+            "Peace": {
+                "Source": "Tasha's Cauldron of Everything"
+            },
+            "Tempest": {
+                "Source": "Player's Handbook"
+            },
+            "Trickery": {
+                "Source": "Player's Handbook"
+            },
+            "Twilight": {
+                "Source": "Tasha's Cauldron of Everything"
+            },
+            "War": {
+                "Source": "Player's Handbook"
+            }
+        }
+    },
+    "Druid": {
+        "Hit Die": "1d8",
+        "Proficiencies": {
+            "Armor": ["Light", "Medium", "Shields"],
+            "Weapon": ["Club", "Dagger", "Dart", "Javelin", "Mace", "Quarterstaff", "Scimitar", "Sickle", "Sling", "Spear"],
+            "Tool": ["Herbalism Kit"],
+            "Saving Throws": ["Intelligence", "Wisdom"],
+            "Skill": [[1, "Arcana", "Animal Handling", "Insight", "Medicine", "Nature", "Perception", "Religion", "Survival"], [2, "Arcana", "Animal Handling", "Insight", "Medicine", "Nature", "Perception", "Religion", "Survival"]]
+        },
+        "Starting Equipment": {
+            "Weapon Choice": [[1, "Any", "Simple Weapons", "Wooden Shield"], [2, "Any", "Simple Melee Weapons", "Scimitar"]],
+            "Forced Items": ["Druidic Focus", "Leather Armor", "Explorer's Pack"],
+            "Gold Alternative": "2d4x10"
+        },
+        "Spell Casting Ability": "Wisdom",
+        "Levels": [{
+            "Attributes": ["Druidic"],
+            "Spell Slots": [2, 2, 0, 0, 0, 0]
+        }, {
+            "Attributes": ["Wild Shape", "Sub Class Choice", "Wild Companion"],
+            "Spell Slots": [2, 3, 0, 0, 0, 0]
+        }, {
+            "Attributes": [],
+            "Spell Slots": [2, 4, 2, 0, 0, 0]
+        }, {
+            "Attributes": ["Ability Score Improvement", "Cantrip Versatility"],
+            "Spell Slots": [2, 4, 3, 0, 0, 0]
+        }, {
+            "Attributes": [],
+            "Spell Slots": [2, 4, 3, 2, 0, 0]
+        }],
+        "Sub Class Name": "Druid Circle",
+        "Sub Classes": {
+            "Dreams": {
+                "Source": "Xanathar's Guide to Everything"
+            },
+            "Land": {
+                "Source": "Player's Handbook"
+            },
+            "Moon": {
+                "Source": "Player's Handbook"
+            },
+            "Shepherd": {
+                "Source": "Xanathar's Guide to Everything"
+            },
+            "Spores": {
+                "Source": "Tasha's Cauldron of Everything"
+            },
+            "Stars": {
+                "Source": "Tasha's Cauldron of Everything"
+            },
+            "Wildfire": {
+                "Source": "Tasha's Cauldron of Everything"
+            }
+        }
+    },
+    "Fighter": {
+        "Hit Die": "1d10",
+        "Proficiencies": {
+            "Armor": ["Light", "Medium", "Heavy", "Shields"],
+            "Weapon": ["Simple", "Martial"],
+            "Tool": [],
+            "Saving Throws": ["Strength", "Constitution"],
+            "Skill": [[1, "Acrobatics", "Animal Handling", "Athletics", "History", "Insight", "Intimidation", "Perception", "Survival"], [2, "Acrobatics", "Animal Handling", "Athletics", "History", "Insight", "Intimidation", "Perception", "Survival"]]
+        },
+        "Starting Equipment": {
+            "Weapon Choice": [[1, "Any", "Martial Weapons", "Shield"], [2, "Any", "Martial Weapons"], ["Crossbow (light)", "2x Handaxe"]],
+            "Pack Choice": [["Dungeoneer's Pack", "Explorer's Pack"]],
+            "Armor Choice": [["Leather Armor + Longbow", "Chain Mail"]],
+            "Gold Alternative": "5d4x10"
+        },
+        "Levels": [{
+            "Attributes": ["Fighting Style (F)", "Second Wind"]
+        }, {
+            "Attributes": ["Action Surge"]
+        }, {
+            "Attributes": ["Sub Class Choice"]
+        }, {
+            "Attributes": ["Ability Score Improvement", "Martial Versatility"]
+        }, {
+            "Attributes": ["Extra Attack"]
+        }],
+        "Sub Class Name": "Martial Archetype",
+        "Sub Classes": {
+            "Arcane Archer": {
+                "Source": "Xanathar's Guide to Everything"
+            },
+            "Banneret": {
+                "Source": "Sword Coast Adventurer's Guide"
+            },
+            "Battle Master": {
+                "Source": "Player's Handbook"
+            },
+            "Cavalier": {
+                "Source": "Xanathar's Guide to Everything"
+            },
+            "Champion": {
+                "Source": "Player's Handbook"
+            },
+            "Echo Knight": {
+                "Source": "Explorer's Guide to Wildemount"
+            },
+            "Eldritch Knight": {
+                "Source": "Player's Handbook"
+            },
+            "Psi Warrior": {
+                "Source": "Tasha's Cauldron of Everything"
+            },
+            "Rune Knight": {
+                "Source": "Tasha's Cauldron of Everything"
+            },
+            "Samurai": {
+                "Source": "Xanathar's Guide to Everything"
+            }
+        }
+    },
+    "Monk": {
+        "Hit Die": "1d8",
+        "Proficiencies": {
+            "Armor": [],
+            "Weapon": ["Simple", "Shortsword"],
+            "Tool": [[1, "Any", "Instruments", "Any", "Artisan's tool"]],
+            "Saving Throws": ["Strength", "Dexterity"],
+            "Skill": [[1, "Acrobatics", "Athletics", "History", "Insight", "Religion", "Stealth"], [2, "Acrobatics", "Athletics", "History", "Insight", "Religion", "Stealth"]]
+        },
+        "Starting Equipment": {
+            "Weapon Choice": [[1, "Any", "Simple Weapons", "Shortsword"]],
+            "Pack Choice": [["Dungeoneer's Pack", "Explorer's Pack"]],
+            "Forced Items": ["10 Darts"],
+            "Gold Alternative": "5d4"
+        },
+        "Levels": [{
+            "Attributes": ["Unarmored Defense", "Martial Arts"],
+            "Martial Arts": "1d4"
+        }, {
+            "Attributes": ["Ki", "Unarmored Movement", "Dedicated Weapon"],
+            "Martial Arts": "1d4"
+        }, {
+            "Attributes": ["Monastic Tradition", "Deflect Missiles", "Ki-Fueled Attack"],
+            "Martial Arts": "1d4"
+        }, {
+            "Attributes": ["Ability Score Improvement", "Slow Fall", "Quickened Healing"],
+            "Martial Arts": "1d4"
+        }, {
+            "Attributes": ["Extra Attack", "Stunning Strike", "Focused Aim"],
+            "Martial Arts": "1d6"
+        }],
+        "Sub Class Name": "Monastic Tradition",
+        "Sub Classes": {
+            "Astral Self": {
+                "Source": "Tasha's Cauldron of Everything"
+            },
+            "Ascendant Dragon": {
+                "Source": "Fizban's Treasury of Dragons"
+            },
+            "Drunken Master": {
+                "Source": "Xanathar's Guide to Everything"
+            },
+            "Four Elements": {
+                "Source": "Player's Handbook"
+            },
+            "Kensei": {
+                "Source": "Xanathar's Guide to Everything"
+            },
+            "Long Death": {
+                "Source": "Sword Coast Adventurer's Guide"
+            },
+            "Open Hand": {
+                "Source": "Player's Handbook"
+            },
+            "Way of Shadow": {
+                "Source": "Player's Handbook"
+            },
+            "Way of the Sun Soul": {
+                "Source": "Xanathar's Guide to Everything"
+            }
+        }
+    },
+    "Paladin": {
+        "Hit Die": "1d10",
+        "Proficiencies": {
+            "Armor": ["Light", "Medium", "Heavy", "Shields"],
+            "Weapon": ["Simple", "Martial"],
+            "Tool": [],
+            "Saving Throws": ["Wisdom", "Charisma"],
+            "Skill": [[1, "Athletics", "Insight", "Intimidation", "Medicine", "Persuasion", "Religion"], [2, "Athletics", "Insight", "Intimidation", "Medicine", "Persuasion", "Religion"]]
+        },
+        "Starting Equipment": {
+            "Weapon Choice": [[1, "Any", "Martial Weapons", "Shield"], [2, "Any", "Martial Weapons"], [3, "Any", "Simple Melee Weapons", "5x Javelin"]],
+            "Pack Choice": [["Priest's Pack", "Explorer's Pack"]],
+            "Forced Items": ["Chain Mail", "Holy Symbol"],
+            "Gold Alternative": "5d4x10"
+        },
+        "Spell Casting Ability": "Charisma",
+        "Levels": [{
+            "Attributes": ["Divine Sense", "Lay on Hands"],
+            "Spell Slots": [0, 0, 0, 0, 0, 0]
+        }, {
+            "Attributes": ["Fighting Style (P)", "Divine Smite"],
+            "Spell Slots": [0, 2, 0, 0, 0, 0]
+        }, {
+            "Attributes": ["Divine Health", "Sub Class Choice", "Harness Divine Power"],
+            "Spell Slots": [0, 3, 0, 0, 0, 0]
+        }, {
+            "Attributes": ["Ability Score Improvement", "Martial Versatility"],
+            "Spell Slots": [0, 3, 0, 0, 0, 0]
+        }, {
+            "Attributes": ["Extra Attack"],
+            "Spell Slots": [0, 4, 2, 0, 0, 0]
+        }],
+        "Sub Class Name": "Sacred Oath",
+        "Sub Classes": {
+            "Ancients": {
+                "Source": "Player's Handbook"
+            },
+            "Conquest": {
+                "Source": "Xanathar's Guide to Everything"
+            },
+            "Crown": {
+                "Source": "Sword Coast Adventurer's Guide"
+            },
+            "Devotion": {
+                "Source": "Player's Handbook"
+            },
+            "Glory": {
+                "Source": "Tasha's Cauldron of Everything"
+            },
+            "Redemption": {
+                "Source": "Xanathar's Guide to Everything"
+            },
+            "Vengeance": {
+                "Source": "Player's Handbook"
+            },
+            "Watchers": {
+                "Source": "Tasha's Cauldron of Everything"
+            },
+            "Oathbraker": {
+                "Source": "Dungeon Master’s Guide"
+            }
+        }
+    },
+    "Ranger": {
+        "Hit Die": "1d10",
+        "Proficiencies": {
+            "Armor": ["Light", "Medium", "Shields"],
+            "Weapon": ["Simple", "Martial"],
+            "Tool": [],
+            "Saving Throws": ["Strength", "Dexterity"],
+            "Skill": [[1, "Animal Handling", "Athletics", "Insight", "Investigation", "Nature", "Perception", "Stealth", "Survival"], [2, "Animal Handling", "Athletics", "Insight", "Investigation", "Nature", "Perception", "Stealth", "Survival"]]
+        },
+        "Starting Equipment": {
+            "Weapon Choice": [[1, "Any", "Simple Melee Weapons", "Shortsword"], [2, "Any", "Simple Melee Weapons", "Shortsword"]],
+            "Armor Choice": [["Scale Mail", "Leather Armor"]],
+            "Pack Choice": [["Dungeoneer's Pack", "Explorer's Pack"]],
+            "Forced Items": ["Longbow", "20 Arrows"],
+            "Gold Alternative": "5d4x10"
+        },
+        "Spell Casting Ability": "Wisdom",
+        "Levels": [{
+            "Attributes": ["Favored Enemy", "Natural Explorer", "Def Explorer", "Favored Foe"],
+            "Spell Slots": [0, 0, 0, 0, 0, 0]
+        }, {
+            "Attributes": ["Fighting Style (R)", "Spellcasting Focus"],
+            "Spell Slots": [0, 2, 0, 0, 0, 0]
+        }, {
+            "Attributes": ["Primeval Awareness", "Sub Class Choice", "Primal Awareness"],
+            "Spell Slots": [0, 3, 0, 0, 0, 0]
+        }, {
+            "Attributes": ["Ability Score Improvement", "Martial Versatility"],
+            "Spell Slots": [0, 3, 0, 0, 0, 0]
+        }, {
+            "Attributes": ["Extra Attack"],
+            "Spell Slots": [0, 4, 2, 0, 0, 0]
+        }],
+        "Sub Class Name": "Ranger Conclave",
+        "Sub Classes": {
+            "Beast Master": {
+                "Source": "Player's Handbook"
+            },
+            "Fey Wanderer": {
+                "Source": "Tasha's Cauldron of Everything"
+            },
+            "Gloom Stalker": {
+                "Source": "Xanathar's Guide to Everything"
+            },
+            "Horizon Walker": {
+                "Source": "Xanathar's Guide to Everything"
+            },
+            "Hunter": {
+                "Source": "Player's Handbook"
+            },
+            "Monster Slayer": {
+                "Source": "Xanathar's Guide to Everything"
+            },
+            "Swarmkeeper": {
+                "Source": "Tasha's Cauldron of Everything"
+            },
+            "Drakewarden": {
+                "Source": "Fizban's Treasury of Dragons"
+            }
+        }
+    },
+    "Rogue": {
+        "Hit Die": "1d8",
+        "Proficiencies": {
+            "Armor": ["Light"],
+            "Weapon": ["Simple", "Crossbow (hand)", "Longsword", "Rapier", "Shortsword"],
+            "Tool": ["Thieves' tools"],
+            "Saving Throws": ["Dexterity", "Intelligence"],
+            "Skill": [[1, "Acrobatics", "Athletics", "Deception", "Insight", "Intimidation", "Investigation", "Perception", "Performance", "Persuasion", "Sleight of Hand", "Stealth"], [2, "Acrobatics", "Athletics", "Deception", "Insight", "Intimidation", "Investigation", "Perception", "Performance", "Persuasion", "Sleight of Hand", "Stealth"], [3, "Acrobatics", "Athletics", "Deception", "Insight", "Intimidation", "Investigation", "Perception", "Performance", "Persuasion", "Sleight of Hand", "Stealth"], [4, "Acrobatics", "Athletics", "Deception", "Insight", "Intimidation", "Investigation", "Perception", "Performance", "Persuasion", "Sleight of Hand", "Stealth"]]
+        },
+        "Starting Equipment": {
+            "Weapon Choice": [["Shortbow", "Shortsword"], ["Rapier", "Shortsword"]],
+            "Pack Choice": [["Burglar's Pack", "Dungeoneer's Pack", "Explorer's Pack"]],
+            "Forced Items": ["Leather Armor", "2x Daggers", "Thieves' Tools"],
+            "Gold Alternative": "4d4x10"
+        },
+        "Levels": [{
+            "Attributes": ["Expertise", "Sneak Attack", "Thieves' Cant"],
+            "Sneak Attack": "1d6"
+        }, {
+            "Attributes": ["Cunning Action"],
+            "Sneak Attack": "1d6"
+        }, {
+            "Attributes": ["Sub Class Choice", "Steady Aim"],
+            "Sneak Attack": "2d6"
+        }, {
+            "Attributes": ["Ability Score Improvement"],
+            "Sneak Attack": "2d6"
+        }, {
+            "Attributes": ["Uncanny Dodge"],
+            "Sneak Attack": "3d6"
+        }],
+        "Sub Class Name": "Roguish Archetype",
+        "Sub Classes": {
+            "Arcane Trickster": {
+                "Source": "Player's Handbook"
+            },
+            "Assassin": {
+                "Source": "Player's Handbook"
+            },
+            "Inquisitive": {
+                "Source": "Xanathar's Guide to Everything"
+            },
+            "Mastermind": {
+                "Source": "Xanathar's Guide to Everything"
+            },
+            "Phantom": {
+                "Source": "Tasha's Cauldron of Everything"
+            },
+            "Scout": {
+                "Source": "Xanathar's Guide to Everything"
+            },
+            "Soulknife": {
+                "Source": "Tasha's Cauldron of Everything"
+            },
+            "Swashbuckler": {
+                "Source": "Xanathar's Guide to Everything"
+            },
+            "Thief": {
+                "Source": "Player's Handbook"
+            }
+        }
+    },
+    "Sorcerer": {
+        "Hit Die": "1d6",
+        "Proficiencies": {
+            "Armor": [],
+            "Weapon": ["Dagger", "Dart", "Sling", "Quarterstaff", "Crossbow (light)"],
+            "Tool": [],
+            "Saving Throws": ["Constitution", "Charisma"],
+            "Skill": [[1, "Arcana", "Deception", "Insight", "Intimidation", "Persuasion", "Religion"], [2, "Arcana", "Deception", "Insight", "Intimidation", "Persuasion", "Religion"]]
+        },
+        "Starting Equipment": {
+            "Weapon Choice": [[1, "Any", "Simple Weapons"]],
+            "Other Choice": [["Component Pouch", "Arcane Focus"]],
+            "Pack Choice": [["Dungeoneer's Pack", "Explorer's Pack"]],
+            "Forced Items": ["2x Daggers"],
+            "Gold Alternative": "3d4x10"
+        },
+        "Spell Casting Ability": "Charisma",
+        "Levels": [{
+            "Attributes": ["Sub Class Choice"],
+            "Spell Slots": [4, 2, 0, 0, 0, 0]
+        }, {
+            "Attributes": ["Font of Magic"],
+            "Spell Slots": [4, 3, 0, 0, 0, 0]
+        }, {
+            "Attributes": ["Metamagic"],
+            "Spell Slots": [4, 4, 2, 0, 0, 0]
+        }, {
+            "Attributes": ["Ability Score Improvement", "Sorcerous Versatility"],
+            "Spell Slots": [5, 4, 3, 0, 0, 0]
+        }, {
+            "Attributes": ["Magical Guidance"],
+            "Spell Slots": [5, 4, 3, 2, 0, 0]
+        }],
+        "Sub Class Name": "Sorcerous Origin",
+        "Sub Classes": {
+            "Aberrant Mind": {
+                "Source": "Tasha's Cauldron of Everything"
+            },
+            "Clockwork Soul": {
+                "Source": "Tasha's Cauldron of Everything"
+            },
+            "Draconic Bloodline": {
+                "Source": "Player's Handbook"
+            },
+            "Divine Soul": {
+                "Source": "Xanathar's Guide to Everything"
+            },
+            "Lunar Sorcery": {
+                "Source": "Dragonlance: Shadow of the Dragon Queen"
+            },
+            "Shadow Magic": {
+                "Source": "Xanathar's Guide to Everything"
+            },
+            "Storm Sorcery": {
+                "Source": "Xanathar's Guide to Everything"
+            },
+            "Wild Magic": {
+                "Source": "Player's Handbook"
+            }
+        }
+    },
+    "Warlock": {
+        "Hit Die": "1d8",
+        "Proficiencies": {
+            "Armor": ["Light"],
+            "Weapon": ["Simple"],
+            "Tool": [],
+            "Saving Throws": ["Wisdom", "Charisma"],
+            "Skill": [[1, "Arcana", "Deception", "History", "Intimidation", "Investigation", "Nature", "Religion"], [2, "Arcana", "Deception", "History", "Intimidation", "Investigation", "Nature", "Religion"]]
+        },
+        "Starting Equipment": {
+            "Weapon Choice": [[1, "Any", "Simple Weapons"], [2, "Any", "Simple Weapons"]],
+            "Other Choice": [["Component Pouch", "Arcane Focus"]],
+            "Pack Choice": [["Scholar's Pack", "Dungeoneer's Pack"]],
+            "Forced Items": ["Leather Armor", "2x Daggers"],
+            "Gold Alternative": "4d4x10"
+        },
+        "Spell Casting Ability": "Charisma",
+        "Levels": [{
+            "Attributes": ["Sub Class Choice", "Pact Magic"],
+            "Spell Slots": [2, 1, 0, 0, 0, 0],
+            "Invocations": 0
+        }, {
+            "Attributes": ["Eldritch Invocations"],
+            "Spell Slots": [2, 2, 0, 0, 0, 0],
+            "Invocations": 2
+        }, {
+            "Attributes": ["Pact Boon"],
+            "Spell Slots": [2, 0, 2, 0, 0, 0],
+            "Invocations": 2
+        }, {
+            "Attributes": ["Ability Score Improvement", "Eldritch Versatility"],
+            "Spell Slots": [3, 0, 2, 0, 0, 0],
+            "Invocations": 2
+        }, {
+            "Attributes": [],
+            "Spell Slots": [3, 0, 0, 2, 0, 0],
+            "Invocations": 3
+        }],
+        "Sub Class Name": "Otherworldly Patron",
+        "Sub Classes": {
+            "Archfey": {
+                "Source": "Player's Handbook"
+            },
+            "Celestial": {
+                "Source": "Xanathar's Guide to Everything"
+            },
+            "Fathomless": {
+                "Source": "Tasha's Cauldron of Everything"
+            },
+            "Fiend": {
+                "Source": "Player's Handbook"
+            },
+            "Genie": {
+                "Source": "Tasha's Cauldron of Everything"
+            },
+            "Great Old One": {
+                "Source": "Player's Handbook"
+            },
+            "Hexblade": {
+                "Source": "Xanathar's Guide to Everything"
+            },
+            "Undead": {
+                "Source": "Van Richten's Guide to Ravenloft"
+            },
+            "Undying": {
+                "Source": "Sword Coast Adventurer's Guide"
+            }
+        }
+    },
+    "Wizard": {
+        "Hit Die": "1d6",
+        "Proficiencies": {
+            "Armor": [],
+            "Weapon": ["Dagger", "Dart", "Sling", "Quarterstaff", "Crossbow (light)"],
+            "Tool": [],
+            "Saving Throws": ["Intelligence", "Wisdom"],
+            "Skill": [[1, "Arcana", "History", "Insight", "Investigation", "Medicine", "Religion"], [2, "Arcana", "History", "Insight", "Investigation", "Medicine", "Religion"]]
+        },
+        "Starting Equipment": {
+            "Weapon Choice": [["Quarterstaff", "Dagger"]],
+            "Pack Choice": [["Scholar's Pack", "Explorer's Pack"]],
+            "Forced Items": ["Spellbook"],
+            "Gold Alternative": "4d4x10"
+        },
+        "Spell Casting Ability": "Intelligence",
+        "Levels": [{
+            "Attributes": ["Arcane Recovery"],
+            "Spell Slots": [3, 2, 0, 0, 0, 0]
+        }, {
+            "Attributes": ["Sub Class Choice"],
+            "Spell Slots": [3, 3, 0, 0, 0, 0]
+        }, {
+            "Attributes": ["Cantrip Formulas"],
+            "Spell Slots": [3, 4, 2, 0, 0, 0]
+        }, {
+            "Attributes": ["Ability Score Improvement"],
+            "Spell Slots": [4, 4, 3, 0, 0, 0]
+        }, {
+            "Attributes": [],
+            "Spell Slots": [4, 4, 3, 2, 0, 0]
+        }],
+        "Sub Class Name": "Arcane Tradition",
+        "Sub Classes": {
+            "Abjuration": {
+                "Source": "Player's Handbook"
+            },
+            "Bladesinging": {
+                "Source": "Tasha's Cauldron of Everything"
+            },
+            "Chronurgy": {
+                "Source": "Explorer's Guide to Wildemount"
+            },
+            "Conjuration": {
+                "Source": "Player's Handbook"
+            },
+            "Divination": {
+                "Source": "Player's Handbook"
+            },
+            "Enchantment": {
+                "Source": "Player's Handbook"
+            },
+            "Evocation": {
+                "Source": "Player's Handbook"
+            },
+            "Graviturgy": {
+                "Source": "Explorer's Guide to Wildemount"
+            },
+            "Illusion": {
+                "Source": "Player's Handbook"
+            },
+            "Necromancy": {
+                "Source": "Player's Handbook"
+            },
+            "Order of Scribes": {
+                "Source": "Tasha's Cauldron of Everything"
+            },
+            "Transmutation": {
+                "Source": "Player's Handbook"
+            },
+            "War Magic": {
+                "Source": "Xanathar's Guide to Everything"
+            }
+        }
     }
-    
 }

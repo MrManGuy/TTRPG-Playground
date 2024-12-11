@@ -4,6 +4,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Home from '../content/Home'
 import Characters from '../content/Characters'
 import Campaigns from '../content/Campaigns'
+import Login from '../auth/Login'
 import Layout from './Layout'
 
 import { Dice } from "../functional/DiceBox";
@@ -37,6 +38,7 @@ const App = () => {
                     <Route index element={<Home/>}/>
                     <Route path="characters" element={<Characters onRoll={rollDice}/>}/>
                     <Route path="campaigns" element={<Campaigns/>}/>
+                    <Route path="login" element={<Login/>}/>
                 </Route>
             </Routes>
         </BrowserRouter>

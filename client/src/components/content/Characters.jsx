@@ -237,7 +237,14 @@ const Characters = (props) => {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-
+        fetch('/', {
+            method: "POST",
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(characterChoices)
+        })
         console.log('Form submitted:', characterChoices);
       };
 

@@ -13,6 +13,9 @@ const Layout = (props) => {
                         <Nav.Link as={Link} to="/characters">Characters</Nav.Link>
                         <Nav.Link as={Link} to="/campaigns">Campaigns</Nav.Link>
                     </Nav>
+                    <Nav className="ml-auto">
+                        <Nav.Link as={Link} to="/login">Login</Nav.Link>
+                    </Nav>
                 </Container>
             </Navbar>
             <Outlet />

@@ -9,3 +9,7 @@ app.use(express.json());
 app.listen(3001, () => {
     console.log("Server running on port 3001")
 })
+
+app.post('/characters', (req, res) => {
+    console.log(req.body)
+})

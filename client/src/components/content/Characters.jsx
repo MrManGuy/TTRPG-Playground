@@ -235,9 +235,9 @@ const Characters = (props) => {
         }
     }
 
-    const handleSubmit = (event) => {
+    const handleSubmit = async (event) => {
         event.preventDefault();
-        fetch('/', {
+        const res = await fetch('/', {
             method: "POST",
             headers: {
                 'Accept': 'application/json',
@@ -254,7 +254,6 @@ const Characters = (props) => {
             setActiveCharacter(character);
         }
         updateCharacterChoices("Class", characterChoices["Class"]);
-  
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 

@@ -1,14 +1,16 @@
-import { Button, Container } from "react-bootstrap";
-import { signInWithGooglePopup, creatUserDocumentFromAuth } from "../../utils/firebase/firebase";
+import { Container, Row, Col } from "react-bootstrap";
+
+import SignUpForm from "./SignUpForm";
+import SignInForm from "./SignInForm";
 
 const Login = () => {
-    const logGoogleUser = async () => {
-        const { user } = await signInWithGooglePopup();
-        const userDoc = await creatUserDocumentFromAuth(user)
-    }
-
     return <Container fluid className="page_body">
-        <Button onClick={logGoogleUser}>Login</Button>
+        <Row>
+            <Col md={1}></Col>
+            <SignInForm />
+            <Col md={2}></Col>
+            <SignUpForm />
+        </Row>
     </Container>;
 }
 

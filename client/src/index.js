@@ -7,6 +7,7 @@ import { UserProvider } from './contexts/user';
 import reportWebVitals from './reportWebVitals';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './styles.scss';
+import './sessions.scss';
 import './characterCreation.scss';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));

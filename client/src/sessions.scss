@@ -1,0 +1,37 @@
+/* HamburgerMenu.css */
+.hamburger_button {
+    position: relative;
+    z-index: 110;
+}
+
+.overlay {
+    position: fixed;
+    top: 3.5rem;
+    height: 100%;
+    width: 60vw; /* Use viewport width units */
+    max-width: 400px;
+    background-color: rgba(53,53,53, 0.9);
+    overflow-x: scroll;
+    transition: transform 0.3s ease;
+    z-index: 100;
+}
+
+.overlay.right {
+    right: 0;
+    transform: translateX(100%);
+    text-align: right;
+}
+
+.overlay.left {
+    left: 0;
+    transform: translateX(-100%);
+}
+
+.overlay.show {
+    transform: translateX(0);
+}
+  
+.menu-content {
+    padding: 4rem 1rem 1rem 1rem;
+    color: white;
+}

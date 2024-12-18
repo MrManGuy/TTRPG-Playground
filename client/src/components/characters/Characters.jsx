@@ -1,31 +1,19 @@
-import { Fragment, useState, useEffect } from "react"
+import { Fragment, useState, useEffect, useContext } from "react"
 import { Container, Row, Col, Button, Form, InputGroup } from "react-bootstrap"
 import DOMPurify from 'dompurify';
+import { UserContext } from "../../contexts/user";
 
-import CharacterCard from "../structural/CharacterCard"
+import CharacterCard from "./CharacterCard"
+import SimpleGroup from "./SimpleGroup";
+import SelectListGroup from "./SelectListGroup";
 
 import raceFeatures from '../../jsons/races.json';
 import classFeatures from '../../jsons/classes.json';
 import items from '../../jsons/items.json';
 import attributes from '../../jsons/attributes.json';
 import choiceLists from '../../jsons/choiceLists.json';
-
-let characterList = [{
-    "id": 1,
-    "name": "Char 1"
-},
-{
-    "id": 2,
-    "name": "Steve"
-},
-{
-    "id": 3,
-    "name": "Gobado"
-},
-{
-    "id": 4,
-    "name": "Test"
-}]
+import CharacterView from "./CharacterView";
+import UserNotSignedIn from "../auth/UserNotSignedIn";
 
 //["Artificer", "Barbarian", "Bard", "Cleric", "Druid", "Fighter", "Monk", "Paladin", "Ranger", "Rogue", "Sorcerer", "Warlock", "Wizard"]
 const classList = Object.keys(classFeatures);
@@ -33,7 +21,9 @@ const abilities = choiceLists["Ability"];
 const raceList = Object.keys(raceFeatures["Main Races"]);
 const baseChoices = {
     "UsingStartingEquipment": true,
+    "Game": "DND 5e",
     "Class": classList[0],
+    "Sub Class": "None",
     "Race": raceList[0],
     "Sub Race": "None", 
     "Ability Scores": {
@@ -46,16 +36,19 @@ const baseChoices = {
     }, 
     "Skill": [], 
     "Alignment": ["Lawful", "Good"],
-    "Equipment": [],
+    "Equipment": {},
     "Rolled Gold": 0
 }
 
 const Characters = (props) => {
     const { onRoll } = props;
     const [isDiceRoll, setIsDiceRoll] = useState(false);
-    const [activeCharacter, setActiveCharacter] = useState('');
-    const [creatingCharacter, setCreatingCharacter] = useState(0);
+    const [activeCharacter, setActiveCharacter] = useState(null);
+    const [creatingCharacter, setCreatingCharacter] = useState(false);
+    const [viewingCharacter, setViewingCharacter] = useState(false);
+    const [characterList, setCharacterList] = useState([]);
     const [characterChoices, setCharacterChoices] = useState(baseChoices);
+    const { currentUser } = useContext(UserContext)
 
     //Manage Page Dice
     const rollAbility = async (ability) => {
@@ -78,11 +71,6 @@ const Characters = (props) => {
         }
 
         updateCharacterChoices("Rolled Gold", result)
-    }
-
-    const setActive = (id) => {
-        sessionStorage.setItem('selectedCharacter', id);
-        setActiveCharacter(id);
     }
 
     const abilityModifier = (score) => Math.floor((score - 10) / 2);
@@ -180,7 +168,7 @@ const Characters = (props) => {
                         }
                     }
                 }
-
+                newCharacterChoices["Equipment"] = {}
                 for(let equipmentChoice of Object.keys(classFeatures[value]["Starting Equipment"])){
                     if(equipmentChoice.includes("Choice")){
                         newCharacterChoices["Equipment"][equipmentChoice] = []
@@ -190,6 +178,10 @@ const Characters = (props) => {
                                 if(choices[2].includes("Weapons")){
                                     let properties = choices[2].split(" ").filter(property => property !== "Weapons");
                                     toAdd = filterForItem("Weapons", properties)[0]
+                                }
+                                if(choices[2].includes("Instruments")){
+                                    let properties = choices[2].split(" ").filter(property => property !== "Instruments");
+                                    toAdd = filterForItem("Instruments", properties)[0]
                                 }
                             }else if(typeof choices[0] === "number"){
                                 toAdd = choices[choices[0]]
@@ -235,25 +227,93 @@ const Characters = (props) => {
         }
     }
 
+    const changeScreen = (id) => {
+        setViewingCharacter(true)
+    }
+
     const handleSubmit = async (event) => {
         event.preventDefault();
-        const res = await fetch('/', {
+        console.log(JSON.stringify({uid: currentUser.uid, ...characterChoices }))
+        const res = await fetch('http://localhost:3001/characters', {
             method: "POST",
+            mode: "cors",
+            credentials: "include",
             headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify(characterChoices)
+            body: JSON.stringify({uid: currentUser.uid, ...characterChoices })
         })
-        console.log('Form submitted:', characterChoices);
+        setCreatingCharacter(false)
       };
 
     useEffect(() => {
-        let character = sessionStorage.getItem('selectedCharacter');
-        if(character != null){
-            setActiveCharacter(character);
-        }
         updateCharacterChoices("Class", characterChoices["Class"]);
+
+        setCharacterList([{
+            "Name": 'Test',
+            "Owner": 'DV2LIgWhTCf5BpWqEDz4UXBCPnz2',
+            "Game": 'DND 5e',
+            "id": 'f171d4ec-5508-46f9-b465-e9b869913f64',
+            "img": "https://hatrabbits.com/wp-content/uploads/2017/01/random.jpg",
+            "Body": {
+              "Class": 'Bard',
+              "Sub_Class": 'None',
+              "Race": 'Dragonborn',
+              "Sub_Race": 'None',
+              "Stats": {
+                "Level": 1,
+                "Max_Health": 8,
+                "Ability_Scores": {
+                    "Strength": {
+                        "S": 10,
+                        "M": 0
+                    },
+                    "Dexterity": {
+                        "S": 10,
+                        "M": 0
+                    },
+                    "Constitution": {
+                        "S": 10,
+                        "M": 0
+                    },
+                    "Intelligence": {
+                        "S": 10,
+                        "M": 0
+                    },
+                    "Wisdom": {
+                        "S": 10,
+                        "M": 0
+                    },
+                    "Charisma": {
+                        "S": 10,
+                        "M": 1
+                    },
+                },
+                "Proficiencies": ["Object"],
+                "Prof_Bonus": 2,
+                "Passive_Perception": 0,
+                "AC": 11
+              },
+              "Attributes": [
+                'Bardic Inspiration',
+                'Draconic Ancestry',
+                'Breath Weapon',
+                'Damage Resistance'
+              ],
+              "Attribute_Choices": { 'Draconic Ancestry': 'Red' },
+              "Equipment": [
+                'Club',
+                "Diplomat's pack",
+                'Bagpipes',
+                'Leather Armor',
+                'Dagger'
+              ],
+              "Currency": [ 0, 0, 0, 0, 0 ]
+            }
+          }])
+
+        setActiveCharacter(characterList[0]);
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
@@ -264,44 +324,56 @@ const Characters = (props) => {
             attributes[classFeatures["Artificer"]["Levels"][0]["Features"][0]]["Description"]
             )}}>
     </div>*/
-    return <Fragment>
+    return   <Fragment>
         <Container fluid className="page_body">
-            {
-            creatingCharacter === 0 ? <Fragment>
+            {currentUser === null ? <UserNotSignedIn /> :
+            <Fragment>
+            {creatingCharacter === false ?
+            <Fragment>
+            {viewingCharacter === false ? 
+            <Fragment>
             <Button onClick={e => setCreatingCharacter(1)} className="full_width">Create New Character</Button>
             <Row xs={1} sm={1} md={2} lg={3} xl={4} >
                 {
                 characterList.map(character =>
                     <Col className="pt-2" key={character.id}>
-                        <CharacterCard {...character} handleActivation={(id) => setActive(id)}/>
+                        <CharacterCard character={character} id={activeCharacter?.id} handleActivation={(id) => setActiveCharacter(characterList.filter(character => character.id === id)[0])} handleView={(id) => changeScreen(id)}/>
                     </Col>
                 )
                 }
             </Row></Fragment>
+            : <CharacterView character={activeCharacter} setViewingCharacter={setViewingCharacter}/>
+            }
+            </Fragment>
             :<Fragment>
-            <Button variant='danger' onClick={e => setCreatingCharacter(0)} className="full_width">Cancel Character Creation</Button>
+            <Button variant='danger' onClick={e => setCreatingCharacter(false)} className="full_width">Cancel Character Creation</Button>
 
             <Form onSubmit={handleSubmit}>
                 {/* 
                     Main character information
                 */}
                 <Form.Label>
-                    <h3 className="section_header">Base Character Features</h3>
+                    <h2 className="section_header">Base Character Features</h2>
+                    <p>Welcome to the TTRPG Character Creator, here you can make a level one character for DND 5e (possibly more TTRPGs in the future but I will not promise that). 
+                        As it stands this tool is meant for slightly more experienced players since no descriptions are given. In the future I would like to add feature popups, but for now it makes this a very uncluttered character creator. 
+                        Please note that if you are creating a spellcaster, their spells will only be available after character creation. Additionally level ups are available after creation.</p>
                 </Form.Label>
                 <Row className="mb-3">
-                    <Form.Group as={Col} md={6} lg={4} xl={3} controlId="characterCreation.characterName">
-                        <Form.Label>
-                            Character Name
-                        </Form.Label>
-                        <Form.Control type="text" placeholder="Character Name" />
-                    </Form.Group>
+                    <SimpleGroup
+                        label="Character Name"
+                        type="text"
+                        required
+                        placeholder="Character Name"
+                        value={characterChoices["Character Name"]}
+                        onChange={e => updateCharacterChoices("Name", e.target.value)}
+                    />
 
-                    <Form.Group as={Col} md={6} lg={4} xl={3} controlId="characterCreation.characterClass">
-                        <Form.Label>Class</Form.Label>
-                        <Form.Select value={characterChoices["Class"]} onChange={e => updateCharacterChoices("Class", e.target.value)}>
-                            {classList.map(className => <option key={className} value={className}>{className}</option>)}
-                        </Form.Select>
-                    </Form.Group>
+                    <SelectListGroup
+                        label="Class"
+                        options={classList}
+                        value={characterChoices["Class"]}
+                        onChange={e => updateCharacterChoices("Class", e.target.value)}
+                    />
 
                     <Form.Group as={Col} md={6} lg={4} xl={3}>
                         <Form.Label>Subrace - Race</Form.Label>
@@ -336,8 +408,8 @@ const Characters = (props) => {
                     Raw "rolls" for abilities
                 */}
                 <Form.Label>
-                    <h3 className="section_header">Character Abilities</h3>
-                    <h4 className="section_subheader">If you want to use values outside of the [3, 18] range, you will have to edit your character after creation</h4>
+                    <h2 className="section_header">Character Abilities</h2>
+                    <p>If you want to use values outside of the [3, 18] range, you will have to edit your character after creation</p>
                 </Form.Label>
                 <Row className="mb-3">
                     {abilities.map(ability => {
@@ -376,7 +448,7 @@ const Characters = (props) => {
                 //One of the race attributes has a choice
                 <Fragment>
                 <Form.Label>
-                    <h3 className="section_header">Race Selections</h3>
+                    <h2 className="section_header">Race Selections</h2>
                 </Form.Label>
                 <Row className="mb-3">
                     {filterForChoice(raceFeatures["Main Races"][characterChoices["Race"]]["Race Attributes"]).concat(
@@ -387,14 +459,13 @@ const Characters = (props) => {
                         if(attribute_body["Choices"].length === 1){
                             attribute_list = choiceLists[attribute_body["Choices"][0].split(' ')[1]]
                         }
-                        return <Form.Group key={attribute} as={Col} lg={3} controlId={`characterCreation.character${attribute}`}>
-                                    <Form.Label>{attribute_body["Choice Title"]}</Form.Label>
-                                    <Form.Select
+                        return <SelectListGroup
+                                    key={attribute}
+                                    label={attribute_body["Choice Title"]}
+                                    options={attribute_list}
+                                    value={characterChoices[attribute]}
                                     onChange={e => updateCharacterChoices(attribute, e.target.value)}
-                                    value={characterChoices[attribute]}>
-                                        {attribute_list.map(choice => <option key={choice}>{`${choice}`}</option>)}
-                                    </Form.Select>
-                                </Form.Group>
+                                />
                     })}
                 </Row>
                 </Fragment>
@@ -405,7 +476,7 @@ const Characters = (props) => {
                     Dedicated prompts for whichever class was chosen
                 */}
                 <Form.Label>
-                    <h3 className="section_header">Class Selections</h3>
+                    <h2 className="section_header">Class Selections</h2>
                 </Form.Label>
                     {classFeatures[characterChoices["Class"]] !== undefined ?
                         <Fragment>
@@ -421,15 +492,14 @@ const Characters = (props) => {
                                         if(group[1] === "Any"){
                                             group = choiceLists[group[2]]
                                         }
-                                        return <Form.Group key={groupID} as={Col} md={6} lg={4} xl={3} controlId={`characterCreation.character${key + groupID}`}>
-                                                <Form.Label>{key} Proficiency</Form.Label>
-                                                <Form.Select
-                                                onChange={e => updateCharacterList(key, e)}
-                                                value={characterChoices[key][groupID - 1]}>
-                                                    {group[0] === groupID ? group.slice(1).map(choice => <option key={choice} disabled={characterChoices[key].includes(choice) || foundProficiencies.includes(choice)}>{`${choice}`}</option>)
-                                                    : group.map(choice => <option key={choice} disabled={characterChoices[key].includes(choice) || foundProficiencies.includes(choice)}>{`${choice}`}</option>)}
-                                                </Form.Select>
-                                            </Form.Group>
+                                        return <SelectListGroup
+                                                    key={groupID}
+                                                    label={`${key} Proficiency ${groupID}`}
+                                                    options={group[0] === groupID ? group.slice(1) : group}
+                                                    checkLists={characterChoices[key].concat(foundProficiencies)}
+                                                    value={characterChoices[key][groupID - 1]}
+                                                    onChange={e => updateCharacterList(key, e)}
+                                                />
                                     })}
                                 </Fragment>
                             }
@@ -438,7 +508,8 @@ const Characters = (props) => {
                         })}
                         </Row>
                         <Form.Label>
-                            <h3 className="section_header">Equipment Selections</h3>
+                            <h2 className="section_header">Equipment Selections</h2>
+                            <p>If you are adding custom equipment you can ignore this step and add the equipment after character creation</p>
                         </Form.Label>
                         <Form.Group as={Col} md={6} lg={4} xl={3}>
                             <Form.Label>Starting Equipment</Form.Label>
@@ -497,24 +568,22 @@ const Characters = (props) => {
                                                                     </Form.Select>
                                                                 </Form.Group>
                                                         }else if(element[2].includes("Instrument")){
-                                                            return <Form.Group key={element[0]} as={Col} md={6} lg={4} xl={3} controlId={`characterCreation.character${category.replaceAll(" ", "") + element[0]}`}>
-                                                                    <Form.Label>{category}</Form.Label>
-                                                                    <Form.Select onChange={e => updateCharacterEquipment(category, e.target.value, element[0] - 1)}>
-                                                                    {choiceLists[element[2]].map(choice => {
-                                                                        return <option key={choice} value={choice}>{choice}</option>
-                                                                    })}
-                                                                    </Form.Select>
-                                                                </Form.Group>
+                                                            return <SelectListGroup
+                                                                        key={element[0]}
+                                                                        label={`${category} ${element[0]}`}
+                                                                        options={choiceLists[element[2]]}
+                                                                        onChange={e => updateCharacterEquipment(category, e.target.value, element[0] - 1)}
+                                                                    />
                                                         }
                                                         return <p key={"BROKEN"}>{element[2]} Needs to be implemented</p>
                                                     }else{
                                                         //Chose one of any of the elements in element
-                                                        return <Form.Group key={element[0]} as={Col} md={6} lg={4} xl={3} controlId={`characterCreation.character${category.replaceAll(" ", "")}`}>
-                                                            <Form.Label>{category}</Form.Label>
-                                                            <Form.Select onChange={e => updateCharacterEquipment(category, e.target.value, 0)}>
-                                                                {element.map(choice => <option key={choice}>{choice}</option>)}
-                                                            </Form.Select>
-                                                        </Form.Group>
+                                                        return <SelectListGroup
+                                                                    key={element[0]}
+                                                                    label={`${category}`}
+                                                                    options={element}
+                                                                    onChange={e => updateCharacterEquipment(category, e.target.value, 0)}
+                                                                />
                                                     }
                                                 }
                                                 return <Fragment key={element}></Fragment>
@@ -541,6 +610,7 @@ const Characters = (props) => {
 
             </Fragment>
             }
+            </Fragment>}
         </Container>
     </Fragment>
 }

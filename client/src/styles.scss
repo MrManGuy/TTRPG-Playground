@@ -1,3 +1,7 @@
+$dark: #353535;
+
+@import "bootstrap";
+
 .page_body{
     margin-top: 0.5rem;
 }
@@ -11,7 +15,8 @@
 }
 
 body{
-    background-color: rgb(48, 48, 48);
+    background-color: #222222;
+    font-family: 'Roboto', sans-serif;
     color: white;
 }
 
@@ -22,7 +27,7 @@ body{
 }
 
 .section_subheader {
-    font-size: 1.1rem;
+    font-size: 1.2rem;
     font-weight: 400;
 }
 
@@ -39,14 +44,36 @@ body{
 #dice-box{
     position: fixed;
     pointer-events: none;
-    z-index: 100;
+    z-index: 1000;
     width: 100%;
     height: 100%;
     canvas {
         position: fixed;
         pointer-events: none;
-        z-index: 100;
+        z-index: 1000;
         width: 100%;
         height: 100%;
     }
+}
+
+#dice_results{
+    position: fixed;
+    z-index: 1001;
+    font-size: 24px;
+    top: 80%;
+    left: 90%;
+    width: 15%;
+    background-color: rgba(34,34,34, 0.9);
+    border: 1px solid #80deea;
+    color: #80deea;
+    transform: translate(-50%, -50%);
+    overflow-wrap: anywhere;
+}
+
+.nav-link, .navbar-brand {
+    color: #80deea;
+}
+
+.nav-link:hover, .nav-link:active, .nav-link:focus {
+    color: #ffffff;
 }

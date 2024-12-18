@@ -17,14 +17,16 @@ const Layout = (props) => {
         <Fragment>
             <Navbar bg="dark" variant="dark" sticky="top">
                 <Container fluid>
-                    <Navbar.Brand href="#">TTRPG Playground</Navbar.Brand>
+                    <Navbar.Brand href="/">TTRPG Playground</Navbar.Brand>
                     <Nav className="me-auto">
                         <Nav.Link as={Link} to="/">Home</Nav.Link>
                         <Nav.Link as={Link} to="/characters">Characters</Nav.Link>
                         <Nav.Link as={Link} to="/campaigns">Campaigns</Nav.Link>
+                        <Nav.Link as={Link} to="/session">Session</Nav.Link>
+                        <Nav.Link as={Link} to="/about">About</Nav.Link>
                     </Nav>
                     <Nav className="ml-auto">
-                        {currentUser === null ? <Nav.Link as={Link} to="/login">Login</Nav.Link> : <Nav.Link onClick={handleSignOut}>Logout</Nav.Link>}
+                        {currentUser === null ? <Nav.Link as={Link} to="/login">Login</Nav.Link> : <Nav.Link onClick={handleSignOut}>{currentUser.displayName} | Logout</Nav.Link>}
                     </Nav>
                 </Container>
             </Navbar>

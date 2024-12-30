@@ -3,10 +3,11 @@ import { Button } from "react-bootstrap"
 import SessionDMToolbar from "./SessionDMToolbar"
 import SessionPlayerToolbar from "./SessionPlayerToolbar"
 
-const ActiveSession = ({handleLeave, onRoll, ...props}) => {
+const ActiveSession = ({handleLeave, currentCharacter, onRoll, ...props}) => {
     return <Fragment>
             <SessionPlayerToolbar 
-                onRoll={onRoll}/>
+                onRoll={onRoll}
+                currentCharacter={currentCharacter}/>
             <Button onClick={(e) => handleLeave(null)}>Leave session</Button>
             <SessionDMToolbar />
         </Fragment>

@@ -6,6 +6,9 @@ const io = new Server(server, {
     cors: {
       origin: '*',
       methods: ['GET', 'POST']
+    },
+    connectionStateRecovery: {
+      maxDisconnectionDuration: 60 * 1000
     }
   });
 const PORT = 3001

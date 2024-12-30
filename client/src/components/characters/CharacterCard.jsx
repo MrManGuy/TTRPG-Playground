@@ -2,6 +2,7 @@ import { Card, Button } from "react-bootstrap"
 
 const CharacterCard = ({character, ...props}) => {
     const selected = props.id === character.id
+    console.log(props)
 
     return <Card className="character_card">
     <Card.Img variant="top" src={character["img"] === undefined ? "/512x256.jpg" : character["img"]} className="card_image"/>
@@ -12,7 +13,7 @@ const CharacterCard = ({character, ...props}) => {
       </Card.Text>
       <Button variant="dark" disabled={selected} onClick={e => props.handleActivation(character.id)}>
       {selected ? "Active Character" : "Set as Active"}</Button>
-      <Button className="right_float" variant="dark" onClick={e => props.handleView(character)}>View Character</Button>
+      <Button className="right_float" variant="dark" onClick={e => props.handleView(character.id)}>View Character</Button>
     </Card.Body>
   </Card>
 }

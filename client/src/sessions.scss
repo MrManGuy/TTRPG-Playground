@@ -8,12 +8,13 @@
     position: fixed;
     top: 3.5rem;
     height: 100%;
-    width: 60vw; /* Use viewport width units */
-    max-width: 400px;
+    width: 100%; /* Use viewport width units */
+    max-width: 45%;
     background-color: rgba(53,53,53, 0.9);
     overflow-x: scroll;
     transition: transform 0.3s ease;
     z-index: 100;
+    padding-bottom: 3rem;
 }
 
 .overlay.right {

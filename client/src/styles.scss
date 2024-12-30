@@ -1,6 +1,10 @@
-$dark: #353535;
+$dark: #272727;
 
 @import "bootstrap";
+
+hr {
+    margin: 0.25rem;
+}
 
 .page_body{
     margin-top: 0.5rem;
@@ -15,7 +19,7 @@ $dark: #353535;
 }
 
 body{
-    background-color: #222222;
+    background-color: #0F0F0F;
     font-family: 'Roboto', sans-serif;
     color: white;
 }
@@ -60,13 +64,13 @@ body{
     position: fixed;
     z-index: 1001;
     font-size: 24px;
-    top: 80%;
+    top: 3.5rem;
     left: 90%;
     width: 15%;
     background-color: rgba(34,34,34, 0.9);
     border: 1px solid #80deea;
     color: #80deea;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, 2%);
     overflow-wrap: anywhere;
 }
 
@@ -76,4 +80,14 @@ body{
 
 .nav-link:hover, .nav-link:active, .nav-link:focus {
     color: #ffffff;
+}
+
+.basic_list { 
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+td {
+    padding-left: 1rem;
 }

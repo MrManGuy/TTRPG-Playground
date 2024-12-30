@@ -14,6 +14,7 @@ import attributes from '../../jsons/attributes.json';
 import choiceLists from '../../jsons/choiceLists.json';
 import CharacterView from "./CharacterView";
 import UserNotSignedIn from "../auth/UserNotSignedIn";
+import { CharacterContext } from "../../contexts/character";
 
 //["Artificer", "Barbarian", "Bard", "Cleric", "Druid", "Fighter", "Monk", "Paladin", "Ranger", "Rogue", "Sorcerer", "Warlock", "Wizard"]
 const classList = Object.keys(classFeatures);
@@ -43,12 +44,12 @@ const baseChoices = {
 const Characters = (props) => {
     const { onRoll } = props;
     const [isDiceRoll, setIsDiceRoll] = useState(false);
-    const [activeCharacter, setActiveCharacter] = useState(null);
     const [creatingCharacter, setCreatingCharacter] = useState(false);
-    const [viewingCharacter, setViewingCharacter] = useState(false);
+    const [viewingCharacter, setViewingCharacter] = useState(null);
     const [characterList, setCharacterList] = useState([]);
     const [characterChoices, setCharacterChoices] = useState(baseChoices);
     const { currentUser } = useContext(UserContext)
+    const { currentCharacter, setCurrentCharacter } = useContext(CharacterContext) 
 
     //Manage Page Dice
     const rollAbility = async (ability) => {
@@ -227,10 +228,6 @@ const Characters = (props) => {
         }
     }
 
-    const changeScreen = (id) => {
-        setViewingCharacter(true)
-    }
-
     const handleSubmit = async (event) => {
         event.preventDefault();
         console.log(JSON.stringify({uid: currentUser.uid, ...characterChoices }))
@@ -255,7 +252,7 @@ const Characters = (props) => {
             "Owner": 'DV2LIgWhTCf5BpWqEDz4UXBCPnz2',
             "Game": 'DND 5e',
             "id": 'f171d4ec-5508-46f9-b465-e9b869913f64',
-            "img": "https://hatrabbits.com/wp-content/uploads/2017/01/random.jpg",
+            "img": "/Girl_Elf_Art_Web.png",
             "Body": {
               "Class": 'Bard',
               "Sub_Class": 'None',
@@ -264,6 +261,8 @@ const Characters = (props) => {
               "Stats": {
                 "Level": 1,
                 "Max_Health": 8,
+                "Current_Health": 8,
+                "Temp_Health": 0,
                 "Ability_Scores": {
                     "Strength": {
                         "S": 10,
@@ -286,14 +285,22 @@ const Characters = (props) => {
                         "M": 0
                     },
                     "Charisma": {
-                        "S": 10,
+                        "S": 12,
                         "M": 1
                     },
                 },
-                "Proficiencies": ["Object"],
+                "Proficiencies": {
+                    "Armor": ["Light", "Medium", "Shields"],
+                    "Weapon": ["Simple"],
+                    "Tool": [],
+                    "Saving Throws": ["Wisdom", "Charisma"],
+                    "Skill": ["Insight", "History"],
+                    "Language": ["Common", "Draconic"]
+                },
                 "Prof_Bonus": 2,
                 "Passive_Perception": 0,
-                "AC": 11
+                "AC": 11,
+                "MS": 30
               },
               "Attributes": [
                 'Bardic Inspiration',
@@ -313,7 +320,7 @@ const Characters = (props) => {
             }
           }])
 
-        setActiveCharacter(characterList[0]);
+        setCurrentCharacter(characterList[0]);
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
@@ -330,19 +337,19 @@ const Characters = (props) => {
             <Fragment>
             {creatingCharacter === false ?
             <Fragment>
-            {viewingCharacter === false ? 
+            {viewingCharacter === null ? 
             <Fragment>
             <Button onClick={e => setCreatingCharacter(1)} className="full_width">Create New Character</Button>
             <Row xs={1} sm={1} md={2} lg={3} xl={4} >
                 {
                 characterList.map(character =>
                     <Col className="pt-2" key={character.id}>
-                        <CharacterCard character={character} id={activeCharacter?.id} handleActivation={(id) => setActiveCharacter(characterList.filter(character => character.id === id)[0])} handleView={(id) => changeScreen(id)}/>
+                        <CharacterCard character={character} id={currentCharacter?.id} handleActivation={(id) => setCurrentCharacter(characterList.filter(character => character.id === id)[0])} handleView={(id) => setViewingCharacter(characterList.filter(character => character.id === id)[0])}/>
                     </Col>
                 )
                 }
             </Row></Fragment>
-            : <CharacterView character={activeCharacter} setViewingCharacter={setViewingCharacter}/>
+            : <CharacterView character={viewingCharacter} setViewingCharacter={setViewingCharacter}/>
             }
             </Fragment>
             :<Fragment>

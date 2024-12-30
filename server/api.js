@@ -1,7 +1,19 @@
 import express from 'express'
 import cors from 'cors'
 import { v4 as uuidv4 } from 'uuid';
-import { getClassAttributes, getRaceAttributes, getAttributeChoices, getStartingEquipment, getProficiencies, getAbilityIncrease, abilityModifier, calculateStartingHealth, calculatePassivePerception, calculateArmorClass } from './dndManager.js'
+import { 
+    getClassAttributes, 
+    getRaceAttributes, 
+    getAttributeChoices, 
+    getStartingEquipment, 
+    getProficiencies, 
+    getAbilityIncrease, 
+    abilityModifier, 
+    calculateStartingHealth, 
+    calculatePassivePerception, 
+    calculateArmorClass,
+    calculateMoveSpeed
+} from './dndManager.js'
 
 const api = express();
 
@@ -53,11 +65,14 @@ api.post('/characters', (req, res) => {
             "Stats": {
                 "Level": 1,
                 "Max_Health": starting_health,
+                "Current_Health": starting_health,
+                "Temp_Health": 0,
                 "Ability_Scores": ability_scores,
                 "Proficiencies": proficiencies,
                 "Prof_Bonus": profBonusList[0],
                 "Passive_Perception": calculatePassivePerception(proficiencies, ability_scores["Wisdom"]["M"], profBonusList[0]),
-                "AC": calculateArmorClass(equipment, ability_scores["Dexterity"]["M"])
+                "AC": calculateArmorClass(equipment, ability_scores["Dexterity"]["M"]),
+                "MS": calculateMoveSpeed(req.body["Class"])
             },
             "Attributes": attributes,
             "Attribute_Choices": attribute_choices,

@@ -34,7 +34,7 @@ const App = () => {
         for(let set of results["sets"]){
             for(let roll of set["rolls"]){
                 if(resultString !== ""){
-                    resultString += "+"
+                    resultString += " + "
                 }
                 resultString += roll["value"]
             }

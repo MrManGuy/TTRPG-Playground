@@ -5,9 +5,11 @@ import { UserContext } from "../../contexts/user"
 import UserNotSignedIn from "../auth/UserNotSignedIn"
 import SessionJoin from "./SessionJoin"
 import ActiveSession from "./ActiveSession"
+import { CharacterContext } from "../../contexts/character"
 
 const SessionHome = ({onRoll, ...props}) => {
     const { currentUser } = useContext(UserContext)
+    const { currentCharacter } = useContext(CharacterContext)
     const [currentSession, setCurrentSession] = useState(null)
     const [sessionID, setSessionID] = useState("")
     const [sessionPin, setSessionPin] = useState("")
@@ -115,7 +117,8 @@ const SessionHome = ({onRoll, ...props}) => {
                         setPin={setSessionPin}/> : 
                     <ActiveSession 
                         handleLeave={setCurrentSession} 
-                        onRoll={handleDiceRoll}/>
+                        onRoll={handleDiceRoll}
+                        currentCharacter={currentCharacter}/>
                 }
             </Fragment>
         }

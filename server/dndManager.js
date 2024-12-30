@@ -112,3 +112,8 @@ export const calculateArmorClass = (equipment, dexterity) => {
     }
     return ac
 }
+
+export const calculateMoveSpeed = (race) => {
+    let moveSpeed = raceFeatures["Main Races"][race]["Speed"]
+    return moveSpeed
+}

@@ -25,3 +25,45 @@ p {
 .input-group {
     margin-bottom: 0 !important;
 }
+
+.ability_score, .stat_square {
+    overflow-wrap: anywhere;
+    .ability_score_header{
+        outline: 1px solid white;
+    }
+    .ability_score_mod, .stat_square_value {
+        font-size: 1.75rem;
+    }
+    .ability_score_value {
+        margin-top: 0rem;
+        padding-bottom: 0.25rem;
+    }
+    .ability_score_name, .stat_square_title {
+        margin-top: 0.25rem;
+        text-transform: uppercase;
+    }
+}
+
+.stat_square {
+    outline: 1px solid white;
+}
+
+.overflow_col {
+    overflow-x: auto;
+}
+
+input[type="checkbox"]:disabled {
+    width: 1rem;
+    height: 1rem;
+}
+  
+input[type="checkbox"]:checked {
+    background-color: #000;
+}
+
+.attribute_block {
+    margin-bottom: 1rem;
+    .attribute_block_title{
+        font-size: 1.2rem;
+    }
+}

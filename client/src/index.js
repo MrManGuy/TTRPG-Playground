@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom/client';
 
 import App from './components/structural/App';
 import { UserProvider } from './contexts/user';
+import { CharacterProvider } from './contexts/character';
 
 import reportWebVitals from './reportWebVitals';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -13,9 +14,9 @@ import './characterCreation.scss';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <UserProvider>
+    <UserProvider><CharacterProvider>
       <App />
-    </UserProvider>
+      </CharacterProvider></UserProvider>
   </React.StrictMode>
 );
 

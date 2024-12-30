@@ -38,7 +38,7 @@ const DiceRoller = ({onRoll, ...props}) => {
 
     return <Fragment>
         <Row className="justify-content-sm-center">
-            {dice.map(die => <Col className="mb-2" xs={4} key={die}>
+            {dice.map(die => <Col className="mb-2" xs={3} key={die}>
                 <Button className="full_width" onClick={(e) => addDice(die)}>+ d{die}</Button>
             </Col>)}
         </Row>

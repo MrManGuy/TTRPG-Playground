@@ -1,10 +1,13 @@
 import { Button, Row, Col } from "react-bootstrap"
+import { Fragment } from "react";
+
 import AbilityScore from "./AbilityScore"
+import StatSquare from "./StatSquare";
+import Item from './Item'
+
 import skillList from '../../jsons/Skills.json';
 import raceFeatures from '../../jsons/races.json'
 import attributes from '../../jsons/attributes.json'
-import StatSquare from "./StatSquare";
-import { Fragment } from "react";
 
 const CharacterView = ({character, mode, ...props}) => {
     const convertModifier = (value) => {
@@ -86,6 +89,39 @@ const CharacterView = ({character, mode, ...props}) => {
                 value={character["Body"]["Stats"]["Temp_Health"]}
                 size={3}
             />
+        </Row>
+        <hr/>
+        <Row className="mb-2">
+            <Col xs={mode === "toolbar" ? 2  : 1} className="overflow_col">
+                {character?.["Body"]?.["Currency"].map((value, index) => {
+                    let text = ""
+                    if(index === 0){
+                        text = "CP"
+                    }else if(index === 1){
+                        text = "SP"
+                    }else if(index === 2){
+                        text = "EP"
+                    }else if(index === 3){
+                        text = "GP"
+                    }else if(index === 4){
+                        text = "PP"
+                    }
+                    return <StatSquare
+                            key={index}
+                            title={text}
+                            value={value}
+                            size={12}
+                        />
+                })}
+            </Col>
+            <Col xs={mode === "toolbar" ? 10  : 11} className="overflow_col">
+                {Object.keys(character?.["Body"]?.["Equipment"]).map(item => {
+                    return <Item 
+                        name={item}
+                        amount={character["Body"]["Equipment"][item]}
+                        />
+                })}
+            </Col>
         </Row>
         <hr/>
         <Row className="mb-2">

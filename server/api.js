@@ -72,7 +72,7 @@ api.post('/characters', (req, res) => {
                 "Prof_Bonus": profBonusList[0],
                 "Passive_Perception": calculatePassivePerception(proficiencies, ability_scores["Wisdom"]["M"], profBonusList[0]),
                 "AC": calculateArmorClass(equipment, ability_scores["Dexterity"]["M"]),
-                "MS": calculateMoveSpeed(req.body["Class"])
+                "MS": calculateMoveSpeed(req.body["Race"])
             },
             "Attributes": attributes,
             "Attribute_Choices": attribute_choices,

@@ -1,6 +1,6 @@
 {
     "Artificer": {
-        "Hit Die": "8",
+        "Hit Die": "1d8",
         "Proficiencies": {
             "Armor": ["Light", "Medium", "Shields"],
             "Weapon": ["Simple", "Firearm"],
@@ -10,7 +10,7 @@
         },
         "Starting Equipment": {
             "Weapon Choice": [[1, "Any", "Simple Weapons"], [2, "Any", "Simple Weapons"]],
-            "Forced Items": ["Crossbow (light)", "20 Bolts"],
+            "Forced Items": ["Crossbow (light)", "20x Bolts"],
             "Armor Choice": [["Studded Leather", "Scale Mail"]],
             "Pack Choice": [["Thieves' tools", "Dungeoneer's pack"]],
             "Gold Alternative": "5d4x10"
@@ -53,7 +53,7 @@
         }
     },
     "Barbarian": {
-        "Hit Die": "12",
+        "Hit Die": "1d12",
         "Proficiencies": {
             "Armor": ["Light", "Medium", "Shields"],
             "Weapon": ["Simple", "Martial"],
@@ -114,7 +114,7 @@
         }
     },
     "Bard": {
-        "Hit Die": "8",
+        "Hit Die": "1d8",
         "Proficiencies": {
             "Armor": ["Light"],
             "Weapon": ["Simple", "Crossbow (hand)", "Longsword", "Rapier", "Shortsword"],
@@ -175,7 +175,7 @@
         }
     },
     "Cleric": {
-        "Hit Die": "8",
+        "Hit Die": "1d8",
         "Proficiencies": {
             "Armor": ["Light", "Medium", "Shields"],
             "Weapon": ["Simple"],
@@ -255,7 +255,7 @@
         }
     },
     "Druid": {
-        "Hit Die": "8",
+        "Hit Die": "1d8",
         "Proficiencies": {
             "Armor": ["Light", "Medium", "Shields"],
             "Weapon": ["Club", "Dagger", "Dart", "Javelin", "Mace", "Quarterstaff", "Scimitar", "Sickle", "Sling", "Spear"],
@@ -311,7 +311,7 @@
         }
     },
     "Fighter": {
-        "Hit Die": "10",
+        "Hit Die": "1d10",
         "Proficiencies": {
             "Armor": ["Light", "Medium", "Heavy", "Shields"],
             "Weapon": ["Simple", "Martial"],
@@ -371,7 +371,7 @@
         }
     },
     "Monk": {
-        "Hit Die": "8",
+        "Hit Die": "1d8",
         "Proficiencies": {
             "Armor": [],
             "Weapon": ["Simple", "Shortsword"],
@@ -433,7 +433,7 @@
         }
     },
     "Paladin": {
-        "Hit Die": "10",
+        "Hit Die": "1d10",
         "Proficiencies": {
             "Armor": ["Light", "Medium", "Heavy", "Shields"],
             "Weapon": ["Simple", "Martial"],
@@ -496,7 +496,7 @@
         }
     },
     "Ranger": {
-        "Hit Die": "10",
+        "Hit Die": "1d10",
         "Proficiencies": {
             "Armor": ["Light", "Medium", "Shields"],
             "Weapon": ["Simple", "Martial"],
@@ -508,7 +508,7 @@
             "Weapon Choice": [[1, "Any", "Simple Melee Weapons", "Shortsword"], [2, "Any", "Simple Melee Weapons", "Shortsword"]],
             "Armor Choice": [["Scale Mail", "Leather Armor"]],
             "Pack Choice": [["Dungeoneer's Pack", "Explorer's Pack"]],
-            "Forced Items": ["Longbow", "20 Arrows"],
+            "Forced Items": ["Longbow", "20x Arrows"],
             "Gold Alternative": "5d4x10"
         },
         "Spell Casting Ability": "Wisdom",
@@ -557,7 +557,7 @@
         }
     },
     "Rogue": {
-        "Hit Die": "8",
+        "Hit Die": "1d8",
         "Proficiencies": {
             "Armor": ["Light"],
             "Weapon": ["Simple", "Crossbow (hand)", "Longsword", "Rapier", "Shortsword"],
@@ -619,7 +619,7 @@
         }
     },
     "Sorcerer": {
-        "Hit Die": "6",
+        "Hit Die": "1d6",
         "Proficiencies": {
             "Armor": [],
             "Weapon": ["Dagger", "Dart", "Sling", "Quarterstaff", "Crossbow (light)"],
@@ -680,7 +680,7 @@
         }
     },
     "Warlock": {
-        "Hit Die": "8",
+        "Hit Die": "1d8",
         "Proficiencies": {
             "Armor": ["Light"],
             "Weapon": ["Simple"],
@@ -749,7 +749,7 @@
         }
     },
     "Wizard": {
-        "Hit Die": "6",
+        "Hit Die": "1d6",
         "Proficiencies": {
             "Armor": [],
             "Weapon": ["Dagger", "Dart", "Sling", "Quarterstaff", "Crossbow (light)"],

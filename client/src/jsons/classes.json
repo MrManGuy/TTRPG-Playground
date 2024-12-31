@@ -10,7 +10,7 @@
         },
         "Starting Equipment": {
             "Weapon Choice": [[1, "Any", "Simple Weapons"], [2, "Any", "Simple Weapons"]],
-            "Forced Items": ["Crossbow (light)", "20 Bolts"],
+            "Forced Items": ["Crossbow (light)", "20x Bolts"],
             "Armor Choice": [["Studded Leather", "Scale Mail"]],
             "Pack Choice": [["Thieves' tools", "Dungeoneer's pack"]],
             "Gold Alternative": "5d4x10"
@@ -508,7 +508,7 @@
             "Weapon Choice": [[1, "Any", "Simple Melee Weapons", "Shortsword"], [2, "Any", "Simple Melee Weapons", "Shortsword"]],
             "Armor Choice": [["Scale Mail", "Leather Armor"]],
             "Pack Choice": [["Dungeoneer's Pack", "Explorer's Pack"]],
-            "Forced Items": ["Longbow", "20 Arrows"],
+            "Forced Items": ["Longbow", "20x Arrows"],
             "Gold Alternative": "5d4x10"
         },
         "Spell Casting Ability": "Wisdom",

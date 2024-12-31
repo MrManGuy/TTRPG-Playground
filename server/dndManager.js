@@ -37,14 +37,27 @@ export const getAttributeChoices = (body, attributes) => {
 }
 
 export const getStartingEquipment = (className, inputEquipment) => {
-    let equipment = []
+    let equipment = {}
+    const incrementEquipment = (equipment, item) => {
+        let amount = 1
+        let index = item.search(/^\d*x /g)
+        if(index !== -1){
+            amount = parseInt(item.match(/^\d*x /g)[0].replace("x ", ""))
+            item = item.replace(/^\d*x /g, "")
+        }
+        if(equipment?.[item] === undefined){
+            equipment[item] = amount
+        }else{
+            equipment[item] += amount
+        }
+    }
     for(let itemList of Object.keys(inputEquipment)){
         for(let item of inputEquipment[itemList]){
-            equipment.push(item)
+            incrementEquipment(equipment, item)
         }
     }
     for(let item of classFeatures[className]?.["Starting Equipment"]?.["Forced Items"]){
-        equipment.push(item)
+        incrementEquipment(equipment, item)
     }
     return equipment
 }
@@ -97,7 +110,7 @@ export const calculatePassivePerception = (proficiencies, wisdom, profBonus) => 
 
 export const calculateArmorClass = (equipment, dexterity) => {
     let ac = 10 + dexterity
-    for(let item of equipment){
+    for(let item of Object.keys(equipment)){
         let foundItem = itemsList["Armors"]?.[item]
         if(foundItem === undefined){
             continue

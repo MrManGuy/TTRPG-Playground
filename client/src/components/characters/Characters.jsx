@@ -309,13 +309,13 @@ const Characters = (props) => {
                 'Damage Resistance'
               ],
               "Attribute_Choices": { 'Draconic Ancestry': 'Red' },
-              "Equipment": [
-                'Club',
-                "Diplomat's pack",
-                'Bagpipes',
-                'Leather Armor',
-                'Dagger'
-              ],
+              "Equipment": {
+                "Club": 2,
+                'Scale Mail': 1,
+                "Dungeoneer's Pack": 1,
+                "Longbow": 1,
+                "Arrows": 20
+              },
               "Currency": [ 0, 0, 0, 0, 0 ]
             }
           }])

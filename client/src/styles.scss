@@ -1,5 +1,8 @@
-$dark: #272727;
+$main-background: #121215;
+$accent-background: #19191E;
+$text-color: #E3E3E9;
 
+$dark: $accent-background;
 @import "bootstrap";
 
 hr {
@@ -19,9 +22,9 @@ hr {
 }
 
 body{
-    background-color: #0F0F0F;
+    background-color: $main-background;
     font-family: 'Roboto', sans-serif;
-    color: white;
+    color: $text-color;
 }
 
 .section_header {
@@ -79,7 +82,7 @@ body{
 }
 
 .nav-link:hover, .nav-link:active, .nav-link:focus {
-    color: #ffffff;
+    color: $text-color;
 }
 
 .basic_list { 
@@ -90,4 +93,40 @@ body{
 
 td {
     padding-left: 1rem;
+}
+
+//Bootstrap overrides
+.btn-primary {
+    --bs-btn-bg: none;
+    --bs-btn-border-color: #80deea;
+}
+
+.btn-danger{
+    --bs-btn-bg: none;
+}
+
+.btn-dark{
+    --bs-btn-bg: none; 
+    background-image: radial-gradient(#00000000, #19191ea1);
+    border-width: 1px;
+}
+
+.form-control, .form-control:focus, .input-group-text {
+    background-color: transparent;
+    color: $text-color;
+    border-color: #80deea;
+}
+
+.form-control::placeholder {
+    color:#9E9E9E
+}
+
+.form-select{
+    background-color: transparent;
+    color: $text-color;
+    border-color: #80deea;
+    option {
+        color: $text-color;
+        background-color: $main-background;
+    }
 }

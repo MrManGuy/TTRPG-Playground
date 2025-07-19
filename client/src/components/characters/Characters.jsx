@@ -247,7 +247,8 @@ const Characters = (props) => {
     useEffect(() => {
         updateCharacterChoices("Class", characterChoices["Class"]);
 
-        setCharacterList([{
+        setCharacterList([
+        {
             "Name": 'Test',
             "Owner": 'DV2LIgWhTCf5BpWqEDz4UXBCPnz2',
             "Game": 'DND 5e',
@@ -318,7 +319,80 @@ const Characters = (props) => {
               },
               "Currency": [ 0, 0, 0, 0, 0 ]
             }
-          }])
+          },
+          {
+            "Name": 'Temp Character',
+            "Owner": 'DV2LIgWhTCf5BpWqEDz4UXBCPnz2',
+            "Game": 'DND 5e',
+            "id": 'befe269f-e946-4760-8f36-d977eb3e3964',
+            "img": "/Girl_Elf_Art_Web.png",
+            "Body": {
+                "Class": 'Monk',
+                "Sub_Class": 'None',
+                "Race": 'Elf',
+                "Sub_Race": 'Wood',
+                "Stats": {
+                    "Level": 1,
+                    "Max_Health": 9,
+                    "Current_Health": 9,
+                    "Temp_Health": 0,
+                    "Ability_Scores": {
+                        "Strength": {
+                            "S": 10,
+                            "M": 0
+                        },
+                        "Dexterity": {
+                            "S": 10,
+                            "M": 0
+                        },
+                        "Constitution": {
+                            "S": 10,
+                            "M": 0
+                        },
+                        "Intelligence": {
+                            "S": 10,
+                            "M": 0
+                        },
+                        "Wisdom": {
+                            "S": 10,
+                            "M": 0
+                        },
+                        "Charisma": {
+                            "S": 12,
+                            "M": 1
+                        },
+                    },
+                    "Proficiencies": {
+                        "Armor": [],
+                        "Weapon": ["Simple", "Shortsword"],
+                        "Tool": ["Lute"],
+                        "Saving Throws": ["Stength", "Dexterity"],
+                        "Skill": ["Athletics", "Acrobatics"],
+                        "Language": ["Common", "Draconic"]
+                    },
+                    "Prof_Bonus": 2,
+                    "Passive_Perception": 15,
+                    "AC": 11,
+                    "MS": 30
+                },
+                "Attributes": [
+                    'Unarmored Defense',
+                    'Martial Arts',
+                    'Darkvision',
+                    'Fey Ancestry',
+                    'Trance',
+                    'Keen Senses',
+                    'Elf Weapon Training',
+                    'Fleet of Foot',
+                    'Mask of the Wild'
+                ],
+                "Attribute_Choices": {},
+                "Equipment": { "Shortsword": 1, "Explorer's Pack": 1, '10 Darts': 1 },
+                "Currency": [ 0, 0, 0, 0, 0 ]
+            }
+            }
+        
+        ])
 
         setCurrentCharacter(characterList[0]);
         // eslint-disable-next-line react-hooks/exhaustive-deps

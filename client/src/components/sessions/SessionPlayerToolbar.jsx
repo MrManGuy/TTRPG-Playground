@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Button, Accordion } from 'react-bootstrap';
-import DiceRoller from '../Tools/DiceRoller';
+import DiceRoller from '../tools/DiceRoller';
 import CharacterView from '../characters/CharacterView';
 
 const SessionPlayerToolbar = ({currentCharacter, onRoll}) => {

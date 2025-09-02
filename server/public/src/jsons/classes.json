@@ -382,7 +382,7 @@
         "Starting Equipment": {
             "Weapon Choice": [[1, "Any", "Simple Weapons", "Shortsword"]],
             "Pack Choice": [["Dungeoneer's Pack", "Explorer's Pack"]],
-            "Forced Items": ["10 Darts"],
+            "Forced Items": ["10x Darts"],
             "Gold Alternative": "5d4"
         },
         "Levels": [{

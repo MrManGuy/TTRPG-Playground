@@ -1,10 +1,13 @@
+$accent-blue: #80deea;
+
 .character_card{
     background-color: transparent;
-    border: 1px solid #80deea;
+    border: 1px solid $accent-blue;
     color: #fff;
     .card_image{
         padding: 1rem 1rem 0 1rem;
-        aspect-ratio: 2 / 1 auto;
+        aspect-ratio: 2 / 1;
+        object-fit: contain;
         max-height: 256px;
         max-width: 512px;
     }
@@ -32,23 +35,23 @@ p {
 .ability_score, .stat_square {
     overflow-wrap: anywhere;
     .ability_score_header{
-        outline: 1px solid white;
+        outline: 1px solid $accent-blue;
     }
     .ability_score_mod, .stat_square_value {
         font-size: 1.75rem;
     }
     .ability_score_value {
         margin-top: 0rem;
-        padding-bottom: 0.25rem;
     }
     .ability_score_name, .stat_square_title {
         margin-top: 0.25rem;
+        margin-bottom: 0.25rem;
         text-transform: uppercase;
     }
 }
 
 .stat_square {
-    outline: 1px solid white;
+    outline: 1px solid $accent-blue;
 }
 
 .overflow_col {

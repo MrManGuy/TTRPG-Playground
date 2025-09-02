@@ -152,10 +152,8 @@
         "Human": {
             "Variant": {
                 "Replace": true,
-                "Ability Score Increase": ["1,1"], 
-                "Skill Choice": ["Any"],
-                "Feat Choice": ["Any"],
-                "Attributes": []
+                "Ability Score Increase": ["1,1"],
+                "Attributes": ["Skill Choice", "Feat Choice"]
             }
         },
         "Tiefling": {

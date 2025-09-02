@@ -1,6 +1,7 @@
 $main-background: #121215;
 $accent-background: #19191E;
 $text-color: #E3E3E9;
+$accent-blue: #80deea;
 
 $dark: $accent-background;
 @import "bootstrap";
@@ -71,14 +72,14 @@ body{
     left: 90%;
     width: 15%;
     background-color: rgba(34,34,34, 0.9);
-    border: 1px solid #80deea;
-    color: #80deea;
+    border: 1px solid $accent-blue;
+    color: $accent-blue;
     transform: translate(-50%, 2%);
     overflow-wrap: anywhere;
 }
 
 .nav-link, .navbar-brand {
-    color: #80deea;
+    color: $accent-blue;
 }
 
 .nav-link:hover, .nav-link:active, .nav-link:focus {
@@ -114,7 +115,7 @@ td {
 .form-control, .form-control:focus, .input-group-text {
     background-color: transparent;
     color: $text-color;
-    border-color: #80deea;
+    border-color: $accent-blue;
 }
 
 .form-control::placeholder {
@@ -124,7 +125,7 @@ td {
 .form-select{
     background-color: transparent;
     color: $text-color;
-    border-color: #80deea;
+    border-color: $accent-blue;
     option {
         color: $text-color;
         background-color: $main-background;

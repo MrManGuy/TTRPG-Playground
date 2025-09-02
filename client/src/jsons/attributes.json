@@ -2,9 +2,13 @@
     "Ability Score Improvement": {
         "Description": "When you reach 4th level, 8th, 12th, 16th, and 19th level, you can increase one ability score of your choice by 2, or you can increase two ability scores of your choice by 1. As normal, you can't increase an ability score above 20 using this feature.",
         "Type": "Passive",
-        "Choice": true,
-        "Choices": ["Any Ability", "Any Ability"],
-        "Choice Title": "Ability Score Improvement"
+        "Choices": [{
+            "Title": "Ability Score Improvement",
+            "Choices": ["Ability"]
+        }, {
+            "Title": "Ability Score Improvement",
+            "Choices": ["Ability"]
+        }]
     },
     "Artificer's Lore": {
         "Description": "Whenever you make an Intelligence (History) check related to magical, alchemical, or technological items, you can add twice your proficiency bonus instead of any other proficiency bonus that may apply.",
@@ -37,9 +41,10 @@
     },
     "Draconic Ancestry": {
         "Description": "You are distantly related to a particular kind of dragon. Your dragon color determines the damage and area of your breath weapon, and the type of resistance you gain.",
-        "Choice": true,
-        "Choices": ["Any Dragon"],
-        "Choice Title": "Draconic Ancestry",
+        "Choices": [{
+            "Title": "Draconic Ancestry",
+            "Choices": ["Dragon Ancestries"]
+        }],
         "Type": "Passive",
         "Breath Weapon": true,
         "Damage Resistance": true
@@ -106,13 +111,22 @@
     "Extra Language": {
         "Description": "You can read, speak, and write one additional language of your choice.",
         "Type": "Passive",
-        "Choice": true,
-        "Choices": ["Any Language"],
-        "Choice Title": "Extra Language"
+        "Choices": [{
+            "Title": "Extra Language",
+            "Choices": ["Language"]
+        }]
     },
     "Fast Movement": {
         "Description": "Starting at 5th level, your speed increases by 10 feet while you aren't wearing heavy armor.",
         "Type": "Passive"
+    },
+    "Feat Choice": {
+        "Description": "You gain one Feat of your choice.",
+        "Type": "Passive",
+        "Choices": [{
+            "Title": "Feat Choice",
+            "Choices": ["Feat"]
+        }]
     },
     "Fey Ancestry": {
         "Description": "You have advantage on saving throws against being charmed, and magic can't put you to sleep.",
@@ -245,9 +259,10 @@
     "Primal Knowledge": {
         "Description": "When you reach 3rd level and again at 10th level, you gain proficiency in one skill of your choice from the list of skills available to barbarians at 1st level.",
         "Type": "Passive",
-        "Choice": true,
-        "Choices": ["Animal Handling", "Athletics", "Intimidation", "Nature", "Perception", "Survival"],
-        "Choice Title": "Primal Knowledge"
+        "Choices": [{
+            "Title": "Primal Knowledge",
+            "Choices": [["Animal Handling", "Athletics", "Intimidation", "Nature", "Perception", "Survival"]]
+        }]
     },
     "Radiant Consumption": {
         "Description": "Starting at 3rd level, you can use your action to unleash the divine energy within yourself, causing a searing light to radiate from you, pour out of your eyes and mouth, and threaten to char you.<ul><li>Your transformation lasts for 1 minute or until you end it as a bonus action. During it, you shed bright light in a 10-foot radius and dim light for an additional 10 feet, and at the end of each of your turns, you and each creature within 10 feet of you take radiant damage equal to half your level (rounded up). In addition, once on each of your turns, you can deal extra radiant damage to one target when you deal damage to it with an attack or a spell. The extra radiant damage equals your level.</li><li>Once you use this trait, you can't use it again until you finish a long rest.</li></ul>",
@@ -271,6 +286,14 @@
     "Reckless Attack": {
         "Description": "Starting at 2nd level, you can throw aside all concern for defense to attack with fierce desperation. When you make your first attack on your turn, you can decide to attack recklessly. Doing so gives you advantage on melee weapon attack rolls using Strength during this turn, but attack rolls against you have advantage until your next turn.",
         "Type": "Action"
+    },
+    "Skill Choice": {
+        "Description": "You gain proficiency in one skill of your choice",
+        "Type": "Passive",
+        "Choices": [{
+            "Title": "Skill Choice",
+            "Choices": ["Skill"]
+        }]
     },
     "Speak with Small Beasts": {
         "Description": "Through sound and gestures, you may communicate simple ideas with Small or smaller beasts.",
@@ -314,9 +337,10 @@
     },
     "Tool Proficiency": {
         "Description": "You gain proficiency with the artisan's tools of your choice: smith's tools, brewer's supplies, or mason's tools.",
-        "Choice": true,
-        "Choices": ["Smith's tools", "Brewer's supplies", "Mason's tools"],
-        "Choice Title": "Tool Proficiency (Dwarf)",
+        "Choices": [{
+            "Title": "Tool Proficiency (Dwarf)",
+            "Choices": [["Smith's tools", "Brewer's supplies", "Mason's tools"]]
+        }],
         "Type": "Passive"
     },
     "Trance": {

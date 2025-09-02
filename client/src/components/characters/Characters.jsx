@@ -131,7 +131,7 @@ const Characters = (props) => {
         if(filter_list !== undefined){
             return filter_list.filter(attribute => {
                 if(attributes[attribute]){
-                    return attributes[attribute]["Choice"] === true
+                    return attributes[attribute]?.["Choices"] !== undefined
                 }else{
                     return false
                 }
@@ -253,7 +253,7 @@ const Characters = (props) => {
             "Owner": 'DV2LIgWhTCf5BpWqEDz4UXBCPnz2',
             "Game": 'DND 5e',
             "id": 'f171d4ec-5508-46f9-b465-e9b869913f64',
-            "img": "/Girl_Elf_Art_Web.png",
+            "img": "/Boy_Dragonborn.png",
             "Body": {
               "Class": 'Bard',
               "Sub_Class": 'None',
@@ -325,14 +325,14 @@ const Characters = (props) => {
             "Owner": 'DV2LIgWhTCf5BpWqEDz4UXBCPnz2',
             "Game": 'DND 5e',
             "id": 'befe269f-e946-4760-8f36-d977eb3e3964',
-            "img": "/Girl_Elf_Art_Web.png",
+            "img": "/Girl_Elf.png",
             "Body": {
                 "Class": 'Monk',
                 "Sub_Class": 'None',
                 "Race": 'Elf',
                 "Sub_Race": 'Wood',
                 "Stats": {
-                    "Level": 1,
+                    "Level": 5,
                     "Max_Health": 9,
                     "Current_Health": 9,
                     "Temp_Health": 0,
@@ -366,12 +366,12 @@ const Characters = (props) => {
                         "Armor": [],
                         "Weapon": ["Simple", "Shortsword"],
                         "Tool": ["Lute"],
-                        "Saving Throws": ["Stength", "Dexterity"],
+                        "Saving Throws": ["Strength", "Dexterity"],
                         "Skill": ["Athletics", "Acrobatics"],
                         "Language": ["Common", "Draconic"]
                     },
                     "Prof_Bonus": 2,
-                    "Passive_Perception": 15,
+                    "Passive_Perception": 0,
                     "AC": 11,
                     "MS": 30
                 },
@@ -384,10 +384,22 @@ const Characters = (props) => {
                     'Keen Senses',
                     'Elf Weapon Training',
                     'Fleet of Foot',
-                    'Mask of the Wild'
+                    'Mask of the Wild',
+                    "Ki", 
+                    "Unarmored Movement", 
+                    "Dedicated Weapon",
+                    "Monastic Tradition", 
+                    "Deflect Missiles", 
+                    "Ki-Fueled Attack",
+                    "Ability Score Improvement", 
+                    "Slow Fall", 
+                    "Quickened Healing",
+                    "Extra Attack",
+                    "Stunning Strike", 
+                    "Focused Aim"
                 ],
                 "Attribute_Choices": {},
-                "Equipment": { "Shortsword": 1, "Explorer's Pack": 1, '10 Darts': 1 },
+                "Equipment": { "Shortsword": 1, "Explorer's Pack": 1, 'Darts': 10 },
                 "Currency": [ 0, 0, 0, 0, 0 ]
             }
             }
@@ -413,7 +425,7 @@ const Characters = (props) => {
             <Fragment>
             {viewingCharacter === null ? 
             <Fragment>
-            <Button onClick={e => setCreatingCharacter(1)} className="full_width">Create New Character</Button>
+            <Button onClick={e => setCreatingCharacter(true)} className="full_width">Create New Character</Button>
             <Row xs={1} sm={1} md={2} lg={3} xl={4} >
                 {
                 characterList.map(character =>
@@ -428,7 +440,6 @@ const Characters = (props) => {
             </Fragment>
             :<Fragment>
             <Button variant='danger' onClick={e => setCreatingCharacter(false)} className="full_width">Cancel Character Creation</Button>
-
             <Form onSubmit={handleSubmit}>
                 {/* 
                     Main character information
@@ -536,18 +547,24 @@ const Characters = (props) => {
                         filterForChoice(raceFeatures["Sub Races"][characterChoices["Race"]]?.[characterChoices["Sub Race"]]?.["Attributes"])
                     ).map(attribute => {
                         let attribute_body = attributes[attribute];
-                        let attribute_list = attribute_body["Choices"]
-                        if(attribute_body["Choices"].length === 1){
-                            attribute_list = choiceLists[attribute_body["Choices"][0].split(' ')[1]]
-                        }
+                        let choice_lists = attribute_body["Choices"];
+                        let attribute_list = []
+                        choice_lists[0]["Choices"].forEach((choice, index) => {
+                            if (typeof(choice) == "string"){
+                                attribute_list = attribute_list.concat(choiceLists[choice])
+                            }else{
+                                attribute_list = attribute_list.concat(choice)
+                            }
+                        })
                         return <SelectListGroup
-                                    key={attribute}
-                                    label={attribute_body["Choice Title"]}
-                                    options={attribute_list}
-                                    value={characterChoices[attribute]}
-                                    onChange={e => updateCharacterChoices(attribute, e.target.value)}
-                                />
-                    })}
+                            key={attribute}
+                            label={attribute_body["Choices"][0]["Title"]}
+                            options={attribute_list}
+                            value={characterChoices[attribute]}
+                            onChange={e => updateCharacterChoices(attribute, e.target.value)}
+                        />
+                    })
+                    }
                 </Row>
                 </Fragment>
                 :
